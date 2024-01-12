@@ -14,18 +14,33 @@ tktk Write a short but descriptive summary of the content in this module.
 
 | Lesson | Video Time | Video | Skills |
 | ------ |:----------:|:-----:| ------ |
-| [tktk Microlesson Name](./tktk-microlesson-01/README.md) | -- | -- | tktk skills covered |
-| [tktk Microlesson Name](./tktk-microlesson-02/README.md) | -- | -- | tktk skills covered |
-| [tktk Microlesson Name](./tktk-microlesson-03/README.md) | -- | -- | tktk skills covered |
+| [Setup](./setup/README.md) | -- | -- | tktk skills covered |
+| [Setting the Stage](./setting-the-stage/README.md) | -- | -- | tktk skills covered |
+| [Build the Listing Model](./build-the-listing-model/README.md) | -- | -- | tktk skills covered |
+| [Build and Use the Listings Controller](./build-and-use-the-listings-controller/README.md) | -- | -- | tktk skills covered |
+| [Add Route Middleware](./add-route-middleware/README.md) | -- | -- | tktk skills covered |
+| [Build the Listings Landing Page](./build-the-listings-landing-page/README.md) | -- | -- | tktk skills covered |
+| [Build the Navigation Bar Partial](./build-the-navigation-bar-partial/README.md) | -- | -- | tktk skills covered |
+| [Build the New Page](./build-the-new-page/README.md) | -- | -- | tktk skills covered |
+| [Build Create Functionality](./build-create-functionality/README.md) | -- | -- | tktk skills covered |
+| [Add Index Functionality to the Listings Landing Page](./add-index-functionality-to-the-listings-landing-page/README.md) | -- | -- | tktk skills covered |
+| [Build the Show Page](./build-the-show-page/README.md) | -- | -- | tktk skills covered |
+| [Build Delete Functionality](./build-delete-functionality/README.md) | -- | -- | tktk skills covered |
+| [Build the Edit Page](./build-the-edit-page/README.md) | -- | -- | tktk skills covered |
+| [Build Update Functionality](./build-update-functionality/README.md) | -- | -- | tktk skills covered |
+| [Add Favorites to the Listing Schema](./add-favorites-to-the-listing-schema/README.md) | -- | -- | tktk skills covered |
+| [Add Favorites Functionality to the Show Page](./add-favorites-functionality-to-the-show-page/README.md) | -- | -- | tktk skills covered |
+| [Add Unfavorite Functionality to the Show Page](./add-unfavorite-functionality-to-the-show-page/README.md) | -- | -- | tktk skills covered |
+| [Wrap Up](./wrap-up/README.md) | -- | -- | tktk skills covered |
 | **Total content**                                        | -- | -- |                     |
 
 ## Level Up content
 
 | Lesson | Video Time | Video | Skills |
 | ------ |:----------:|:-----:| ------ |
-| [tktk Level Up Microlesson Name](./level-up/tktk-microlesson-01.md) | -- | -- | tktk skills covered |
-| [tktk Level Up Microlesson Name](./level-up/tktk-microlesson-02.md) | -- | -- | tktk skills covered |
-| [tktk Level Up Microlesson Name](./level-up/tktk-microlesson-03.md) | -- | -- | tktk skills covered |
+| [Formatting Currency](./level-up/formatting-currency.md) | -- | -- | tktk skills covered |
+| [Accounting for User Preferences](./level-up/accounting-for-user-preferences.md) | -- | -- | tktk skills covered |
+| [Viewing a User's Favorite Listings](./level-up/viewing-a-users-favorite-listings.md) | -- | -- | tktk skills covered |
 | **Total Level Up content**                                          | -- | -- |                     |
 
 ## References
