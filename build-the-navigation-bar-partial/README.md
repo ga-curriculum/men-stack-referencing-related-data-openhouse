@@ -38,4 +38,8 @@ Back in our `_navbar.ejs` file let's add some logic to conditionally render our 
 </nav>
 ```
 
-We will be able to test out this navbar in the next section.
+## You Do: Add Navbar to Listings Index Page
+
+We have created our navbar partial, now let's add it to our listings index page. Inside of `views/listings/index.ejs` include the navbar partial. Test this by manually going to `localhost:3000/listings` in the browser.
+
+> Make sure to use the correct path to the navbar partial.
