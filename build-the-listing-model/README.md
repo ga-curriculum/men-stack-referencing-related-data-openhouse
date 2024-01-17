@@ -12,7 +12,7 @@ We have already created the user model for our application, so we have already c
 
 Let's focus on the next user story:
 
-- As a user, I want to create a listing for real estate that I own.
+- As a user, I want to view all the listings that have been created by every user on a single page.
 
 Before we can create a listing we need to create a Schema and Model for our listing. Let's create a new file in our `models` directory called `listing.js`. Inside `listings.js` let's create a new Schema for our listing:
 

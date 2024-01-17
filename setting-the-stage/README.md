@@ -48,8 +48,8 @@ As a user:
 - I want to create a new accout.
 - I want to log in to my account.
 - I want to log out of my account.
-- I want to create a listing for real estate that I own.
 - I want to view all the listings that have been created by every user on a single page.
+- I want to create a listing for real estate that I own.
 - I want to view all the details of a listing, including its owner, on a new page by following a link from that index page.
 - I want to delete a listing that I own.
 - I want to edit any of the details of a listing that I own.
