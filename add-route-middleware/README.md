@@ -6,9 +6,9 @@
 
 We are still on the user story:
 
-- As a user, I want to view all the listings that have been created by every user on a single page.
+- As a user, I want to create a listing for real estate that I own.
 
-This is our last prep item before we can view all listings. We need to add some middleware to our application to protect this route from users who are not logged in, and set up an object to help with our authorization when we get to our edit and delete functionality.
+This is our last prep item before we can create a listings. We need to add some middleware to our application to protect this route from users who are not logged in, and set up an object to help with our authorization when we get to our edit and delete functionality.
 
 Let's protect this route from guest users or users that are not signed in. We can do this by adding a middlewre function. Let's create a new directory in the root of our application called `middleware`. Inside of this direcotry create a new file called `is-signed-in.js`.
 

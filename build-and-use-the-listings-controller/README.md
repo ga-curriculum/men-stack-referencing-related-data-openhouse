@@ -6,9 +6,9 @@
 
 We are still on the user story:
 
-- As a user, I want to view all the listings that have been created by every user on a single page.
+- As a user, I want to create a listing for real estate that I own.
 
-However we still need to do some prep work before we can view all listings. We have our model now let's create our controller. The goal here is to create a router, import the listings model, and export the router so that we can mount it in our `server.js` file.
+However we still need to do some prep work before we can create a listings. We have our model now let's create our controller. The goal here is to create a router, import the listings model, and export the router so that we can mount it in our `server.js` file.
 
 Let's create a new file in our `controllers` directory called `listings.js`. Inside `listings.js` let's set up our router, require in our listing model, and export our router:
 

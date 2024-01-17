@@ -4,11 +4,7 @@
 
 ## Route for GET All listings
 tktk - I feel like we should more this to where we add in the functionality. It's odd to split it up like we have it. 
-We have finally reached the point where we can start building out our listings landing page. We are still on the user story:
-
-- As a user, I want to view all the listings that have been created by every user on a single page.
-
-Let's start by thinking of this routes. Using the user story as a guide, we can determine that we need a `GET` request to `/listings`. This will be our index route for listings.
+Before we can create a listing we are going to need a route to display all of the listings. This way we can redirect to this listings page after a user creates a new listing. Let's start by thinking of this routes to get all the listings. We can determine that we need a `GET` request to `/listings`. This will be our index route for listings.
 
 | Action | What It Does | HTTP Verb | Route |
 | ------ | ------------ | --------- | ----- |
