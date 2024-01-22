@@ -1,4 +1,4 @@
-# ![[tktk Module Name]](./assets/tktk-hero.png)
+# ![MEN Stack Referencing Related Data - RealApp](./assets/tktk-hero.png)
 
 ## About
 

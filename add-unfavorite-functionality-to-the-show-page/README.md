@@ -1,7 +1,10 @@
-# ![[tktk Module Name] - Add Unfavorite Functionality to the Show Page](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - RealApp - Add Unfavorite Functionality to the Show Page](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to implement functionality for unfavoriting a resource.
+
 ## User story
+
+Take a look at the next user story. This should mirror the logic used to favorite a listing quite closely.
 
 - AAU viewing the details of a listing that I have favorited, I should be able to unfavorite the listing.
 
@@ -17,9 +20,9 @@ Our route should listen for `DELETE` requests on `/listings/:listingId/favorited
 
 ## Building the UI
 
-Let's modify the favorites section of our show page with an 'Unfavorite it' button. As with adding favorites, we'll need to include `listing._id` and `user._id` in our `DELETE` request.
+Let's modify the 'Favorites' section of our show page with an 'Unfavorite it' button. As with adding favorites, we'll need to include `listing._id` and `user._id` in our `DELETE` request.
 
-Add the following to the `if` block:
+Add the following `<form>` to the `if` block:
 
 ```html
 <!-- views/listings/show.ejs -->
@@ -27,12 +30,14 @@ Add the following to the `if` block:
     <p>Favorited by <%= listing.favoritedByUsers.length %> people.</p>
     <% if (userHasFavorited) { %>
       <p>You've favorited this listing!</p>
+
       <form
         action="/listings/<%= listing._id %>/favorited-by/<%= user._id %>?_method=DELETE"
         method="POST"
       >
         <button type="submit">Unfavorite it</button>
       </form>
+
     <% } else { %>
       ...
     <% } %>
@@ -64,9 +69,9 @@ In your browser, click on the 'Unfavorite it' button and check your VS Code term
 
 Now that we have confirmed access to `req.params.listingId` and `req.params.userId`, let's complete the controller action.
 
-Our goal here is to update a listing by **removing** a `userId` to the `favoritedByUsers` array. Once again we'll utilize the `findByIdAndUpdate()` method, but this time using the MongoDB `$pull` operator. 
+Our goal here is to update a listing by **removing** a `userId` from the `favoritedByUsers` array. Once again, we'll utilize the `findByIdAndUpdate()` method, but this time using the MongoDB *`$pull`* operator. 
 
-The [`$pull`](https://www.mongodb.com/docs/manual/reference/operator/update/pull/) behaves much like the `$push` operator, except that it **removes** a target value from the array:
+The [*`$pull`*](https://www.mongodb.com/docs/manual/reference/operator/update/pull/) behaves much like the `$push` operator, except that it **removes** a target value from the array:
 
 ```javascript
 const updateObject = { $pull: { targetArray: valueForRemoval } }
@@ -90,3 +95,5 @@ router.delete('/:listingId/favorited-by/:userId', async (req, res) => {
   }
 });
 ```
+
+In your browser, try unfavoriting a listing and verify that the UI changes as expected.

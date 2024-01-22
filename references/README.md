@@ -1,4 +1,4 @@
-# ![[tktk Module Name] - References](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - RealApp - References](./assets/hero.png)
 
 ## Lesson references
 
@@ -8,9 +8,10 @@
 - [`Model.findByIdAndUpdate()`](https://mongoosejs.com/docs/api/model.html#Model.findByIdAndUpdate())
 - [`$push`](https://www.mongodb.com/docs/manual/reference/operator/update/push/)
 - [`$pull`](https://www.mongodb.com/docs/manual/reference/operator/update/pull/)
+- [`Array.prototype.some()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
 
 ## Level Up references
 
-- [tktk descriptive name of link]()
+- [`Int.NumberFormat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat).
 - [tktk descriptive name of link]()
 - [tktk descriptive name of link]()

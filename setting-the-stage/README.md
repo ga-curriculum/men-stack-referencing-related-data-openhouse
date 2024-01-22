@@ -1,4 +1,4 @@
-# ![[tktk Module Name] - Setting the Stage](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - RealApp - Setting the Stage](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 
@@ -55,7 +55,7 @@ As a user:
 - I want to see how many people have favorited a listing.
 - I want to view all the listings that I have favorited on a single page.
 
-> Sometimes, you might see user stories written as `As a user, I want to do X because of Y`. This is an excellent way to add context to a user story, but it is optional.
+> 💡 Sometimes, you might see user stories written as `As a user, I want to do X because of Y`. This is an excellent way to add context to a user story, but it is optional.
 
 From creating these user stories, we get a sense of what the functionality of our application will be, and we also now have a checklist of sorts to work through. 
 
@@ -77,7 +77,7 @@ For listings, we need to keep track of the following:
 
 tktk - Hunter can you make a ERD for this above data? No relationships yet, just the data.
 
-> We are intentionally leaving off the favorites feature for now. We will add a field/value pair for this feature when we add relationships to our ERD.
+> 💡 We are intentionally leaving off the favorites feature for now. We will add a field/value pair for this feature when we add relationships to our ERD.
 
 Now, let's add in the relationships. First, let's dive into the relationship between users and listings. We want a user to be able to create, edit, and delete multiple listings they own. This is a one-to-many relationship. A user can have many listings, but a listing can only have one user.
 

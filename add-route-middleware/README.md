@@ -1,4 +1,4 @@
-# ![[tktk Module Name] - Add Route Middleware](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - RealApp - Add Route Middleware](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 
@@ -82,7 +82,7 @@ const passUserToView = (req, res, next) => {
 module.exports = passUserToView;
 ```
 
-> Don't forget to use `next()` to move to the following action in our Express application and to export our middleware function!
+> 🚨 Don't forget to use `next()` to move to the following action in our Express application and to export our middleware function!
 
 Success! We now have a middleware function that will assign the current signed-in user to the `res.locals` object so that we can use the `user` in our views. Let's import our middleware function into `server.js` and use it to assign the current signed-in user to the `res.locals` object:
 
@@ -113,7 +113,7 @@ app.get('/', (req, res) => {
 // Express application
 ```
 
-> Using the `next()` method in Express is a way to move to the following action in our Express application. After we have assigned the current signed-in user to the `res.locals` object, we want to move on to the next action in our Express application. In this case, that is the `app.get()` method call for the root route.
+> 💡 Using the `next()` method in Express is a way to move to the following action in our Express application. After we have assigned the current signed-in user to the `res.locals` object, we want to move on to the next action in our Express application. In this case, that is the `app.get()` method call for the root route.
 
 ## Review questions
 

@@ -1,4 +1,4 @@
-# ![[tktk Module Name] - Add Favorites Functionality to the Show Page](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - RealApp - Add Favorites Functionality to the Show Page](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to implement functionality for favoriting a resource.
 
@@ -76,17 +76,17 @@ The `findByIdAndUpdate()` accepts two arguments:
 1. An `ObjectId` for locating the document.
 2. An object containing data to update the document with.
 
-The update object we use here will be different from what you've seen in the past, as we need to modify an array inside the listing document. For this we'll make use of MongoDB's `$push` operator.
+The update object we use here will be different from what you've seen in the past, as we need to modify an array inside the listing document. For this we'll make use of MongoDB's *`$push`* operator.
 
-The [`$push`](https://www.mongodb.com/docs/manual/reference/operator/update/push/) operator is used to add a new value to an array. The operator requires that we specify the target array and the value to add.
+The [*`$push`*](https://www.mongodb.com/docs/manual/reference/operator/update/push/) operator is used to add a new value to an array. The operator requires that we specify the **target array** and the **value** to add.
 
-When used inside an update object, we would see the following syntax:
+When used inside an update object, we would see something like the following syntax:
 
 ```javascript
 const updateObject = { $push: { targetArray: newValue } }
 ```
 
-In this case, we'll be adding `req.params.userId` to `favoritedByUsers`.
+For our purposes, we'll be adding `req.params.userId` to `favoritedByUsers`.
 
 Update the function as shown below:
 
@@ -107,15 +107,15 @@ router.post('/:listingId/favorited-by/:userId', async (req, res) => {
 
 At this point, you should be able to favorite a listing!
 
-## Modifying the show page
+## Modifying the view
 
-Now that we can favorite a listing, let's touch up our show page with some conditional rendering.
+Now that we can favorite a listing, let's touch up our **show page** with some conditional rendering.
 
 Once a user favorites a listing, they should no longer see the 'Favorite it!' button. We can determine if a user has favorited a listing by checking if their `ObjectId` is inside the `favoritedByUsers` array. 
 
 This determination can actually be handled in the corresponding controller action by creating a boolean called `userHasFavorited`. We can then pass this boolean to the show view, and conditionally render the 'Favorite it!' button based on its value.
 
-Update the function as shown below:
+Update the 'show' controller as demonstrated below:
 
 ```javascript
 // controllers/listings.js
@@ -142,6 +142,8 @@ router.get('/:listingId', async (req, res) => {
 });
 ```
 
+> 💡 The [`some()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some) array method returns `true` if at least one element passes the test in the provided callback. In this example, if at least one `ObjectId` in the array matches that of the current user, the value of `userHasFavorited` will be `true`. If there is no matching `ObjectId`, `userHasFavorited` will have a value of `false`.
+
 Next we'll update our view with an `if...else` block:
 
 ```html
@@ -155,6 +157,8 @@ Next we'll update our view with an `if...else` block:
       <p>You haven't favorited this listing.</p>
     <% } %>
 ```
+
+> 🏆 Notice how concise our conditional rendering is here. This is a direct result of the additional work we did in our controller action. While it's possible to achieve this functionality entirely in the view, it is a better practice to handle complex logic like this in controllers.
 
 Finally, move the `<form>` and `<button>` into the `else` block:
 
@@ -178,3 +182,5 @@ Finally, move the `<form>` and `<button>` into the `else` block:
 
     <% } %>
 ```
+
+In your browser, try favoriting a listing. Verify that the UI changes as expected.

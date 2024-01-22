@@ -1,4 +1,4 @@
-# ![[tktk Module Name] - Build Create Functionality](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - RealApp - Build Create Functionality](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 
@@ -35,7 +35,7 @@ We have determined that we need a route for `POST` requests to `/listings`. Let'
 
 Test by submitting the form in the browser.
 
-> Make sure to use `req.body` to access the data from the form.
+> 🚨 Make sure to use `req.body` to access the data from the form.
 
 After you have completed the above steps, you should be able to see the data from the form in the terminal. You should also be redirected to `/listings` in the browser.
 
@@ -53,7 +53,7 @@ router.post('/', async (req, res) => {
 });
 ```
 
-> If we were to `console.log` the `req.body` object after we add the `owner` key, we would see an object that directly matches our schema. Since this is the case, we can feed the `req.body` object directly into the `Listing.create()` method.
+> 💡 If we were to `console.log` the `req.body` object after we add the `owner` key, we would see an object that directly matches our schema. Since this is the case, we can feed the `req.body` object directly into the `Listing.create()` method.
 
 ## Review questions
 

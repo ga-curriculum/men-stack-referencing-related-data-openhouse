@@ -1,4 +1,4 @@
-# ![[tktk Module Name] - Build the New Page](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - RealApp - Build the New Page](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 
@@ -16,7 +16,7 @@ These two parts require separate routes. Let's start to think through the first 
 | Index | Displays all listings | `GET` | `/listings` |
 | New | Displays a form to create a new listing | `GET` | `/listings/new` |
 
-> We carried over the index route from the previous section to build onto this routes table.
+> 💡 We carried over the index route from the previous section to build onto this routes table.
 
 Now we know what our route should be, let's include an anchor element in our `listings/index.ejs` file to link to this new route:
 
@@ -35,12 +35,12 @@ We have determined that we need a route for `GET` requests to `/listings/new`. L
 2. Using `res.render()`, render a new view called `listings/new.ejs`.
 3. Inside of `views/listings`, create a new file called `new.ejs`.
 4. Include the navbar partial in `new.ejs`.
-5. Add an `h1` element that says "Add a New Listing!".
+5. Add an `<h1>` element that says "Add a New Listing!".
 6. Add a form that has a submit button. Leave the form blank for now.
 
 Test using the anchor element in `listings/index.ejs` to navigate to `localhost:3000/listings/new` in the browser.
 
-> Make sure to give your submit button text to see it in the browser.
+> 🚨 Make sure to give your submit button text to see it in the browser.
 
 After completing the above steps, you should see the message "Add a New Listing!" in the browser. You should also see the navbar partial and the submit button.
 
