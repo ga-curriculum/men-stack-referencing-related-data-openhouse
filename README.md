@@ -23,7 +23,6 @@ tktk Write a short but descriptive summary of the content in this module.
 | [Build the Navigation Bar Partial](./build-the-navigation-bar-partial/README.md) | -- | -- | tktk skills covered |
 | [Build the New Page](./build-the-new-page/README.md) | -- | -- | tktk skills covered |
 | [Build Create Functionality](./build-create-functionality/README.md) | -- | -- | tktk skills covered |
-
 | [Add Index Functionality to the Listings Landing Page](./add-index-functionality-to-the-listings-landing-page/README.md) | -- | -- | Applying the `populate()` method to index functionality. |
 | [Build the Show Page](./build-the-show-page/README.md) | -- | -- | Displaying a single resource on its own page. |
 | [Build Delete Functionality](./build-delete-functionality/README.md) | -- | -- | Securely deleting a resource with protected controller actions. |
