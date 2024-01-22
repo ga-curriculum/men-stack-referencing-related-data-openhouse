@@ -39,8 +39,8 @@ tktk Write a short but descriptive summary of the content in this module.
 | Lesson | Video Time | Video | Skills |
 | ------ |:----------:|:-----:| ------ |
 | [Formatting Currency](./level-up/formatting-currency.md) | -- | -- | tktk skills covered |
-| [Accounting for User Preferences](./level-up/accounting-for-user-preferences.md) | -- | -- | tktk skills covered |
 | [Viewing a User's Favorite Listings](./level-up/viewing-a-users-favorite-listings.md) | -- | -- | Displaying related user data. |
+| [Accounting for User Preferences](./level-up/accounting-for-user-preferences.md) | -- | -- | tktk skills covered |
 | **Total Level Up content**                                          | -- | -- |                     |
 
 ## References
