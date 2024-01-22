@@ -1,4 +1,4 @@
-# ![[tktk Module Name] - Build the Navigation Bar Partial](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - RealApp - Build the Navigation Bar Partial](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 
@@ -42,4 +42,4 @@ Back in our `_navbar.ejs` file, let's add some logic to conditionally render our
 
 We have created our navbar partial. Now, let's add it to our listings index page. Inside of `views/listings/index.ejs` include the navbar partial. Test this by manually going to `localhost:3000/listings` in the browser.
 
-> Make sure to use the correct path to the navbar partial.
+> 🚨 Make sure to use the correct path to the navbar partial.

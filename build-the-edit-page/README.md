@@ -1,4 +1,4 @@
-# ![[tktk Module Name] - Build the Edit Page](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - RealApp - Build the Edit Page](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 
@@ -10,7 +10,7 @@ Let's address the next user story:
 
 Much like creating a new resource, this functionality will require two requests:
 
-1. A `GET` to render the edit view.
+1. A `GET` to render the view.
 2. A `PUT` to update the resource.
 
 We will begin with the `GET` request that renders the view.

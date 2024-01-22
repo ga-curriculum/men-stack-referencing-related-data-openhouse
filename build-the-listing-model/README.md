@@ -1,8 +1,8 @@
-# ![[tktk Module Name] - Build the Listing Model](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - RealApp - Build the Listing Model](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 
-## Build the listing model
+## Building the listing model
 
 We have already created the user functionality for our application, so we have already checked off three of our user stories:
 
@@ -22,7 +22,7 @@ const mongoose = require('mongoose');
 const listingSchema = new mongoose.Schema({});
 ```
 
-> You should always use the [`new`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new) keyword when creating a new instance of a Schema. This is because we do not want to modify the Schema class itself; instead, we want to create a new instance of it. This is a common pattern in object-oriented programming and is best practice.
+> 🏆 You should always use the [`new`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new) keyword when creating a new instance of a Schema. This is because we do not want to modify the Schema class itself; instead, we want to create a new instance of it. This is a common pattern in object-oriented programming and is best practice.
 
 First, we require in Mongoose. Then, we create a new instance of a Schema using the Schema class. The Schema class takes in an object of key-value pairs that represent our model's fields and data types. Looking at our ERD for the listing model, we can see that we need to track the following fields:
 
@@ -58,7 +58,7 @@ const listingSchema = new mongoose.Schema({
 });
 ```
 
-> The Schema class can take an optional second parameter that is also an object. This is where we can turn on options for a document, such as timestamps. Also, notice that we have kept camel case for our field names to stay consistent with the naming convention of JavaScript.
+> 🧠 The `Schema` class can take an optional second parameter that is also an object. This is where we can turn on options for a document, such as `timestamps`. Also, notice that we have kept camel case for our field names to stay consistent with the naming convention of JavaScript.
 
 ## Embedding data vs. referencing data
 
@@ -93,9 +93,9 @@ This field is still in Mongoose, so we must give this field a type. However, we 
   },
 ```
 
-> Notice we have not added the `favoritedBy` field yet. This field value pair will be added in a future section.
+> 😎 Notice we have not added the `favoritedBy` field yet. This field value pair will be added in a future section.
 
-## Compile and export the listing model
+## Compiling and exporting the model
 
 So far, we have only created a schema for our listing. This is just a blueprint for what our listing will look like. To have access to methods that would allow us to create, read, update, and delete listings, we need to compile our schema into a model. We do this by calling the `mongoose.model()` method and passing in the name of the model we want to create and the schema we want to use to create it. Lastly, we need to export this model because we want to use it in other files.
 

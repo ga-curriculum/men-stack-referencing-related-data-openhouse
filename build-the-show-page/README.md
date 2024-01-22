@@ -1,4 +1,4 @@
-# ![[tktk Module Name] - Build the Show Page](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - RealApp - Build the Show Page](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to build the functionality for displaying a single resource on its own page.
 
@@ -8,7 +8,7 @@ Now that we are displaying all the listings on our index view, let's take a look
 
 - I want to view all the details of a listing, including its owner, on a new page by following a link from that index page.
 
-Here we'll want to add functionality for displaying a single listing on its own page. 
+Based on our user story, the show page should include information on the owner of the listing. Once again, we'll be utilizing the `populate()` method to join the referenced data.
 
 ## Conceptualizing the route
 
@@ -20,7 +20,7 @@ Our route should listen for `GET` requests on `/listings/:listingId`.
 
 ## Building the UI
 
-Next we'll need to make a small change in `views/listings/index.ejs`. The UI that issues our `GET` request will be an anchor tag that prompts the user to view additional details on a particular listing. We'll also need to include the `listing._id` in the request URL. This will allow us to retrieve a specific listing in our controller function.
+Next we'll need to make a small change in `views/listings/index.ejs`. The UI that issues our `GET` request will be an anchor tag that prompts the user to 'View more details' about a particular listing. We'll also need to include the `listing._id` in the request URL. This will allow us to retrieve a specific listing in our controller.
 
 Update the `<li>` with the achor element as shown below:
 
@@ -39,7 +39,7 @@ Next, let's build the scaffolding for our controller function.
 This scaffolding will help us confirm a few things:
 
 1. The route is responding to the request issued by the anchor tag in `views/listings/index.ejs`.
-2. Our function has access to the `listingId` included in `req.params`. being passed from the front end.
+2. Our function has access to the `listingId` being passed from the front end.
 
 Add the following to `controllers/listings.js`:
 
@@ -62,8 +62,6 @@ After completing the steps above, click on the 'View more details' link on the l
 
 Now that our function has access to the `listingId`, we can retrieve a specific listing and render it to the view.
 
-Based on our user story, we know we'll need to include information on the listing owner, meaning we'll need to utilize the `populate()` method once again.
-
 Update the function as shown below:
 
 ```javascript
@@ -85,17 +83,17 @@ router.get('/:listingId', async (req, res) => {
 });
 ```
 
-> 💡 In our application, we'll need to `populate()` the `owner` path anytime we wish to display information about an `owner` beyond their `ObjectId.`
+> 💡 In our application, we'll need to `populate()` the `owner` path anytime we wish to display information about an `owner` beyond an `ObjectId.`
 
 ## Rendering the view
 
 Let's outline some of the things we'll need to accomplish in our show view. 
 
-We'll want two sections here:
+We'll want **two sections** here:
 
-- A **details section** with information on the listing, including its `city`, `size`, `price`, and `streetAddress`.
+1. A **details section** with information on the listing, including its `city`, `size`, `price`, and `streetAddress`.
 
-- An **owner section** section displaying the `username` of the listing `owner`, with a message indicating whether the user viewing the listing is the owner of the property.
+2. An **owner section** section displaying the `username` of the listing `owner`, with a message indicating whether the user viewing the listing is the owner of the property.
 
 Run the following command in your terminal:
 
@@ -103,7 +101,7 @@ Run the following command in your terminal:
 touch views/listings/show.ejs
 ```
 
-Let's address the boilerplat and listing details section first. 
+Let's address the boilerplate and listing details section first. 
 
 Add the following to the view:
 
@@ -144,3 +142,5 @@ Add the following to the view:
     <% } %>
   </body>
 ```
+
+> 💡 Remember, thanks to the `populate()` method, the `owner` property of a `listing` is now an object containing user data.

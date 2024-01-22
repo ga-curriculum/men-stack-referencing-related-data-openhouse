@@ -1,4 +1,4 @@
-# ![[tktk Module Name] - Build Update Functionality](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - RealApp - Build Update Functionality](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 
@@ -8,7 +8,7 @@ Now that we are rendering an edit view, we can address the next component of thi
 
 - AAU viewing the details of a listing that I own, I should be able to follow a link to be taken to a page where I can edit any of the details of a listing and update it from there.
 
-As with our delete functionality, we'll want some additional security here. The edit link is only visible to the owner of the listing, but an unauthorized user could still find a way to navigate to the edit page. To handle that scenario, we'll make sure the controller action is protected. Should a user attempt to update a listing they don't own, they will receive a message: "You don't have permission to do that."
+As with our delete functionality, we'll want some additional security here. The edit link is only visible to the owner of the listing, but an unauthorized user could still find a way to navigate to the edit page. To handle that scenario, we'll make sure the controller action is protected. Should a user attempt to update a listing they don't own, they will receive a message: 'You don't have permission to do that.'
 
 > 📚 The term **protected controller action** refers a controller action that is secured through an authentication or authorization check. This means that only users who meet certain criteria can access the functionality of that action.
 

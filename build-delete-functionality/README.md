@@ -1,4 +1,4 @@
-# ![[tktk Module Name] - Build Delete Functionality](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - RealApp - Build Delete Functionality](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 
@@ -156,3 +156,5 @@ router.delete('/:listingId', async (req, res) => {
   }
 });
 ```
+
+Open up your browser and try deleting a listing that you own. If you attempt to delete a listing that you are not the owner of, you should notice that you are prevented from doing so on both the client and the server.

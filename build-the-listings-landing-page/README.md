@@ -1,4 +1,4 @@
-# ![[tktk Module Name] - Build the Listings Landing Page](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - RealApp - Build the Listings Landing Page](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 
@@ -10,7 +10,7 @@ Before creating a listing, we will need a route to display all of the listings. 
 | ------ | ------------ | --------- | ----- |
 | Index | Displays all listings | `GET` | `/listings` |
 
-> The index action is one of two read actions in CRUD. It is used to display all of the resources of a given type.
+> 💡 The index action is one of two read actions in CRUD. It is used to display all of the resources of a given type.
 
 ## You do: Log all listings
 
@@ -23,13 +23,13 @@ We have determined that we need a route for `GET` requests to `/listings`. Let's
 5. `console.log()` any errors that occur.
 6. Test your route in the browser by going to `localhost:3000/listings` manually.
 
-> Make sure you have started your server with `nodemon` before testing your route.
+> 🚨 Make sure you have started your server with `nodemon` before testing your route.
 
 After completing the above steps, you should see the message "Listings index page" in the browser. You should also see an empty array in the terminal. This is because we have yet to create any listings.
 
 Make sure you have debugged your application before moving on.
 
-## Render Listings Index Page
+## Rendering the listings index page
 
 We have confirmed that our route is working; now it's time to render the listings index page. For right now, we are not going to worry about handling any data; we just want to set up a place that we can add to in the future. Let's create a new directory called `listings` in our `views` directory. Inside of `views/listings`, create a new file called `index.ejs`. Inside of `index.ejs`, let's add the following code:
 
@@ -48,7 +48,7 @@ We have confirmed that our route is working; now it's time to render the listing
 </html>
 ```
 
-> VS Code allows us to add boilerplate HTML by typing `!` and hitting the `tab` key.
+> 💡 VS Code allows us to add boilerplate HTML by typing `!` and hitting the `tab` key.
 
 Now, we have an index page for our listings. Let's render this page in our route. Inside of `controllers/listings.js` update our route to render the listings index page:
 

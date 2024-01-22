@@ -1,10 +1,14 @@
-# ![[tktk Module Name] - Level Up - Viewing a User's Favorite Listings](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - RealApp - Level Up - Viewing a User's Favorite Listings](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to create a profile page for displaying data related with a user.
 
 ## User story
 
+Take a look at the user story below:
+
 - AAU viewing the navbar, I should be able to follow a link to my profile page where I can view the listings I own and the listings that I have favorited.
+
+Previously, we used `populate()` to render listings with their related user data. For this story, we'll take a slightly different approach. Our functionality will begin with the user. We'll be able to retrieve all of the listings associated with that user by querying the database for their `ObjectId`.
 
 ## Conceptualizing the route
 
@@ -12,13 +16,13 @@ Our route should listen for `GET` requests on `/users/profile`.
 
 | Action | What It Does | HTTP Verb | Route |
 | ------ | ------------ | --------- | ----- |
-| Profile | Displays a page with the listings owned and favorited by a user | `GET` | `/users/profile` |
+| Profile | Displays information about and data associated with a user | `GET` | `/users/profile` |
 
 > 💡 We could include the `userId` as a parameter in our route, but in this case we'll rely on our auth middleware for identifying the necessary resources.
 
 ## Building the UI
 
-Add the following anchor tag to the navbar:
+First, let's add the following anchor tag to the navbar:
 
 ```html
 <!-- views/partials/_navbar.ejs -->
@@ -27,7 +31,7 @@ Add the following anchor tag to the navbar:
 
 ## Scaffolding the function
 
-Before we can build the scaffolding for this functionality, we'll need to run through some additional setup.
+Before we can build the scaffolding for this functionality, we'll need to run through some additional setup steps.
 
 ### Setup
 
@@ -82,7 +86,7 @@ router.get('/profile', async (req, res) => {
 });
 ```
 
-In your browser, navigate to the profile page and check your VS Code terminal.
+In your browser, navigate to the profile page and check your VS Code terminal. Confirm that `req.session.user` is being logged correctly.
 
 ## Writing the controller action
 
@@ -93,7 +97,7 @@ Despite this functionality being in `controllers/users.js`, the resource we are 
 1. `myListings`: Listings **owned** by the current user.
 2. `myFavoriteListings`: Listings **favorited** by the current user.
 
-We'll also `populate()` the `owner` path on both of these queries in case we want to display `owner.username` beside each listing.
+The `find()` operation accepts an object with any criteria we wish to query by. For `myListings`, we'll want to query our database for any listings that contain `req.session.user._id` on the `owner` property. For `myFavoriteListings`, we'll query for the same value on `favoritedByUsers`. We'll also `populate()` the `owner` path on both of these queries in case we want to display `owner.username` beside each listing.
 
 Add the following:
 
