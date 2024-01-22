@@ -37,24 +37,24 @@ Translating this into JavaScript using the Mongoose library, we get the followin
 const mongoose = require('mongoose');
 
 const listingSchema = new mongoose.Schema({
-    streetAddress: {
-        type: String,
-        required: true,
-    },
-    city: {
-        type: String,
-        required: true,
-    },
-    price: {
-        type: Number,
-        required: true,
-        min: 0,
-    },
-    size: {
-        type: Number,
-        required: true,
-        min: 0,
-    }
+	streetAddress: {
+		type: String,
+		required: true,
+	},
+	city: {
+		type: String,
+		required: true,
+	},
+	price: {
+		type: Number,
+		required: true,
+		min: 0,
+	},
+	size: {
+		type: Number,
+		required: true,
+		min: 0,
+	}
 });
 ```
 
@@ -70,27 +70,27 @@ Let's put this into practice. First, we will need a field to represent this rela
 
 ```js
 // ... other properties located above
-size: {
-        type: Number,
-        required: true,
-        min: 0,
-    },
-owner: {}
+  size: {
+    type: Number,
+    required: true,
+    min: 0,
+  },
+  owner: {}
 ```
 
 This field is still in Mongoose, so we must give this field a type. However, we are not storing just a string or a number in this field. Instead, we are going to store a user's document object ID. There is a particular type in Mongoose for this called `mongoose.Schema.Types.ObjectId`. We will also need to tell Mongoose what model this field is referencing. We do this by adding the `ref` property to this field. In this case, we are referencing the `User` model.
 
 ```js
 // ... other properties located above
-size: {
-        type: Number,
-        required: true,
-        min: 0,
-    },
-owner: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-    }
+  size: {
+    type: Number,
+    required: true,
+    min: 0,
+  },
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+  },
 ```
 
 > Notice we have not added the `favoritedBy` field yet. This field value pair will be added in a future section.
