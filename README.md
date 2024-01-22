@@ -2,7 +2,7 @@
 
 ## About
 
-tktk Write a short but descriptive summary of the content in this module.
+In this module, you'll learn how to form relationships in MongoDB through referencing.
 
 ## Prerequisites
 
