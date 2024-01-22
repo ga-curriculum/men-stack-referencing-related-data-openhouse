@@ -2,7 +2,7 @@
 
 **Learning objective:** By the end of this lesson, students will be able to apply the `populate()` method to index functionality.
 
-## User Story
+## User story
 
 Now that we have data in our database, let's focus on the next user story:
 
@@ -16,10 +16,10 @@ Recall the `owner` property on our `listingSchema`:
 
 ```javascript
 // models/listing.js
-owner: {
-  type: mongoose.Schema.Types.ObjectId,
-  ref: 'User',
-}
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+  },
 ```
 
 The `owner` property stores the `ObjectId` of a `User` document. This pattern is known as **referencing**, where a document in one collection links to a document in another collection by storing a record of its `ObjectId`.

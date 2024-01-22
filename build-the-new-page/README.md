@@ -2,7 +2,7 @@
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 
-## GET a New Listing Form
+## `GET` a new listing form
 
 The action for creating a new listing breaks down into two parts:
 
@@ -27,7 +27,7 @@ Now we know what our route should be, let's include an anchor element in our `li
 <!--Closing body and html element under-->
 ```
 
-## You Do: Render a New Listing Form
+## You Do: Render a new listing form
 
 We have determined that we need a route for `GET` requests to `/listings/new`. Let's build it! Inside of `controllers/listings.js` do the following steps:
 
@@ -44,29 +44,29 @@ Test using the anchor element in `listings/index.ejs` to navigate to `localhost:
 
 After completing the above steps, you should see the message "Add a New Listing!" in the browser. You should also see the navbar partial and the submit button.
 
-## Schema to Form Field Mapping
+## Schema to form field mapping
 
 We are at the point of accepting some data from the user; however, what should we accept? We have a schema for our listings and will use it to determine what data we need to accept from the user. Let's take a look at our schema fields for listings:
 
 ```js
-streetAddress: {
-        type: String,
-        required: true,
-    },
-    city: {
-        type: String,
-        required: true,
-    },
-    price: {
-        type: Number,
-        required: true,
-        min: 0,
-    },
-    size: {
-        type: Number,
-        required: true,
-        min: 0,
-    }
+  streetAddress: {
+    type: String,
+    required: true,
+  },
+  city: {
+    type: String,
+    required: true,
+  },
+  price: {
+    type: Number,
+    required: true,
+    min: 0,
+  },
+  size: {
+    type: Number,
+    required: true,
+    min: 0,
+  },
 ```
 
 We can see that we need to accept the following data from the user:
@@ -82,15 +82,15 @@ We are going to need a form field for each of these fields. Let's add these to o
 
 ```html
 <form>
-    <label for="street-address">Street Address:</label>
-    <input type="text" name="streetAddress" id="street-address" />
-    <label for="city">City:</label>
-    <input type="text" name="city" id="city" />
-    <label for="price">Price:</label>
-    <input type="number" name="price" id="price" min="0"/>
-    <label for="size">Size:</label>
-    <input type="number" name="size" id="size" min="0"/>
-    <button type="submit">Add Listing</button>
+	<label for="street-address">Street Address:</label>
+	<input type="text" name="streetAddress" id="street-address" />
+	<label for="city">City:</label>
+	<input type="text" name="city" id="city" />
+	<label for="price">Price:</label>
+	<input type="number" name="price" id="price" min="0"/>
+	<label for="size">Size:</label>
+	<input type="number" name="size" id="size" min="0"/>
+	<button type="submit">Add Listing</button>
 </form>
 ```
 

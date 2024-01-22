@@ -2,7 +2,7 @@
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 
-## Build the Listing Model
+## Build the listing model
 
 We have already created the user functionality for our application, so we have already checked off three of our user stories:
 
@@ -37,30 +37,30 @@ Translating this into JavaScript using the Mongoose library, we get the followin
 const mongoose = require('mongoose');
 
 const listingSchema = new mongoose.Schema({
-    streetAddress: {
-        type: String,
-        required: true,
-    },
-    city: {
-        type: String,
-        required: true,
-    },
-    price: {
-        type: Number,
-        required: true,
-        min: 0,
-    },
-    size: {
-        type: Number,
-        required: true,
-        min: 0,
-    }
+	streetAddress: {
+		type: String,
+		required: true,
+	},
+	city: {
+		type: String,
+		required: true,
+	},
+	price: {
+		type: Number,
+		required: true,
+		min: 0,
+	},
+	size: {
+		type: Number,
+		required: true,
+		min: 0,
+	}
 });
 ```
 
 > The Schema class can take an optional second parameter that is also an object. This is where we can turn on options for a document, such as timestamps. Also, notice that we have kept camel case for our field names to stay consistent with the naming convention of JavaScript.
 
-## Embedding Vs. Referencing Data
+## Embedding data vs. referencing data
 
 In Mongoose, there are two ways to represent relationships between data. The first is called embedding. This is where we nest one document inside another. The second is called referencing. This is where we store a reference to another document inside a document. 
 
@@ -70,32 +70,32 @@ Let's put this into practice. First, we will need a field to represent this rela
 
 ```js
 // ... other properties located above
-size: {
-        type: Number,
-        required: true,
-        min: 0,
-    },
-owner: {}
+  size: {
+    type: Number,
+    required: true,
+    min: 0,
+  },
+  owner: {}
 ```
 
 This field is still in Mongoose, so we must give this field a type. However, we are not storing just a string or a number in this field. Instead, we are going to store a user's document object ID. There is a particular type in Mongoose for this called `mongoose.Schema.Types.ObjectId`. We will also need to tell Mongoose what model this field is referencing. We do this by adding the `ref` property to this field. In this case, we are referencing the `User` model.
 
 ```js
 // ... other properties located above
-size: {
-        type: Number,
-        required: true,
-        min: 0,
-    },
-owner: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-    }
+  size: {
+    type: Number,
+    required: true,
+    min: 0,
+  },
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+  },
 ```
 
 > Notice we have not added the `favoritedBy` field yet. This field value pair will be added in a future section.
 
-## Compile and Export the Listing Model
+## Compile and export the listing model
 
 So far, we have only created a schema for our listing. This is just a blueprint for what our listing will look like. To have access to methods that would allow us to create, read, update, and delete listings, we need to compile our schema into a model. We do this by calling the `mongoose.model()` method and passing in the name of the model we want to create and the schema we want to use to create it. Lastly, we need to export this model because we want to use it in other files.
 
@@ -109,7 +109,7 @@ module.exports = Listing;
 
 That is it! We now have a model for our listing that we can use to create, read, update, and delete listings.
 
-## Review Questions
+## Review questions
 
 1. What is the difference between embedding and referencing data?
 2. What is the difference between a Schema and a Model in Mongoose?

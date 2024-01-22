@@ -2,7 +2,7 @@
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 
-## Authentication Middleware - Protecting Listings Routes
+## Authentication middleware - protecting listings routes
 
 We are still on the user story:
 
@@ -32,8 +32,8 @@ Awesome sauce. Now, we just have to handle the case of a user needing to be sign
 
 ```js
 const isSignedIn = (req, res, next) => {
-    if (req.session.user) return next();
-    res.redirect('/auth/sign-in');
+  if (req.session.user) return next();
+  res.redirect('/auth/sign-in');
 };
 ```
 
@@ -59,7 +59,7 @@ app.use('/auth', authController);
 app.use('/listings', isSignedIn, listingsController); // add middleware to protect listings routes
 ```
 
-## Authorization Middleware - Listing Owner
+## Authorization middleware - listing owner
 
 We have protected our listing routes from guest users or users not signed in. Let's now set up an object to help with our authorization when we get to our edit and delete functionality. We know we can access the currently signed-in user on the `req.session` object. We can use this to check our controller or assign the current signed-in user to the `res.locals` object for checks in our views.
 
@@ -115,7 +115,7 @@ app.get('/', (req, res) => {
 
 > Using the `next()` method in Express is a way to move to the following action in our Express application. After we have assigned the current signed-in user to the `res.locals` object, we want to move on to the next action in our Express application. In this case, that is the `app.get()` method call for the root route.
 
-## Review Questions
+## Review questions
 
 1. What is the purpose of route middleware?
 2. What is the difference between authentication and authorization?
