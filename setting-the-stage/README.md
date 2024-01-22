@@ -2,7 +2,7 @@
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 
-## Real Estate App
+## Real estate app
 
 During this module, we are going to create a real estate application. This application will allow users to create listings for their own real estate. Details they will be able to track are:
 
@@ -19,7 +19,7 @@ The application includes user authentication and authorization. Users must sign 
 
 > The solution code for this module is located [here](https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-referencing-related-data-real-estate-solution)
 
-## Project Planning
+## Project planning
 
 Project planning plays a crucial role in projects, regardless of their size. It is an integral part of the real-world development process and establishes a valuable routine. Adopting this practice is beneficial for gaining insights into a project's scope and breaking it down into more manageable components.
 
@@ -30,7 +30,7 @@ The process of planning a project can take various forms. Yet, some fundamental 
 
 While these elements can be developed in any sequence, starting with user stories and then progressing to ERDs is often advantageous. User stories provide a comprehensive understanding of the application's functionality and user experience. At the same time, ERDs offer insights into the structure of the data.
 
-### User Stories
+### User stories
 
 User stories are a way to describe an application's functionality from a user's perspective. They are often written in the format of:
 

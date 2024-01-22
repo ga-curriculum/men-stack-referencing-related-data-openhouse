@@ -2,7 +2,7 @@
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 
-## Build Listings Controller
+## Build listings controller
 
 We are still on the user story:
 

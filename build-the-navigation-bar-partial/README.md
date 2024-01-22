@@ -2,7 +2,7 @@
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 
-## Navigation Bar
+## Navigation bar
 
 We are about to build another couple of routes to handle the creation of a listing. Let's build a navigation bar so that we can easily navigate between the different pages of our application.
 
@@ -38,7 +38,7 @@ Back in our `_navbar.ejs` file, let's add some logic to conditionally render our
 </nav>
 ```
 
-## You Do: Add Navbar to Listings Index Page
+## You Do: Add navbar to listings index page
 
 We have created our navbar partial. Now, let's add it to our listings index page. Inside of `views/listings/index.ejs` include the navbar partial. Test this by manually going to `localhost:3000/listings` in the browser.
 

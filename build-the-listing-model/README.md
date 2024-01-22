@@ -2,7 +2,7 @@
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 
-## Build the Listing Model
+## Build the listing model
 
 We have already created the user functionality for our application, so we have already checked off three of our user stories:
 
@@ -60,7 +60,7 @@ const listingSchema = new mongoose.Schema({
 
 > The Schema class can take an optional second parameter that is also an object. This is where we can turn on options for a document, such as timestamps. Also, notice that we have kept camel case for our field names to stay consistent with the naming convention of JavaScript.
 
-## Embedding Vs. Referencing Data
+## Embedding data vs. referencing data
 
 In Mongoose, there are two ways to represent relationships between data. The first is called embedding. This is where we nest one document inside another. The second is called referencing. This is where we store a reference to another document inside a document. 
 
@@ -95,7 +95,7 @@ This field is still in Mongoose, so we must give this field a type. However, we 
 
 > Notice we have not added the `favoritedBy` field yet. This field value pair will be added in a future section.
 
-## Compile and Export the Listing Model
+## Compile and export the listing model
 
 So far, we have only created a schema for our listing. This is just a blueprint for what our listing will look like. To have access to methods that would allow us to create, read, update, and delete listings, we need to compile our schema into a model. We do this by calling the `mongoose.model()` method and passing in the name of the model we want to create and the schema we want to use to create it. Lastly, we need to export this model because we want to use it in other files.
 
@@ -109,7 +109,7 @@ module.exports = Listing;
 
 That is it! We now have a model for our listing that we can use to create, read, update, and delete listings.
 
-## Review Questions
+## Review questions
 
 1. What is the difference between embedding and referencing data?
 2. What is the difference between a Schema and a Model in Mongoose?

@@ -2,7 +2,7 @@
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 
-## POST a New Listing
+## `POST` a new listing
 
 The action for creating a new listing breaks down into two parts:
 
@@ -25,7 +25,7 @@ Now we know what our route should be, let's update our form in `views/listings/n
 <form action="/listings" method="POST">
 ```
 
-## You Do: Create a New Listing
+## You Do: Create a new listing
 
 We have determined that we need a route for `POST` requests to `/listings`. Let's build it! Inside of `controllers/listings.js` do the following steps:
 
@@ -39,7 +39,7 @@ Test by submitting the form in the browser.
 
 After you have completed the above steps, you should be able to see the data from the form in the terminal. You should also be redirected to `/listings` in the browser.
 
-## Database Insertion
+## Database insertion
 
 We have the form data! However, we still need one last piece of the puzzle. If we look at our schema again, we see we have the field `owner`. We intentionally left that out of the form because we don't want the user to be able to set the owner of a listing. We want the currently signed-in user to create a listing they own. 
 
@@ -55,7 +55,7 @@ router.post('/', async (req, res) => {
 
 > If we were to `console.log` the `req.body` object after we add the `owner` key, we would see an object that directly matches our schema. Since this is the case, we can feed the `req.body` object directly into the `Listing.create()` method.
 
-## Review Questions
+## Review questions
 
 1. What is the difference between `req.body` and `req.params`?
 2. What is the difference between `res.redirect()` and `res.render()`?

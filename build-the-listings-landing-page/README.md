@@ -2,7 +2,7 @@
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 
-## Route for GET All listings
+## Route for `GET` all listings
 
 Before creating a listing, we will need a route to display all of the listings. This way, we can redirect users to this listings page after they create a new listing. Let's start by thinking of this route to get all the listings. We can determine that we need a `GET` request to `/listings`. This will be our index route for listings.
 
@@ -12,7 +12,7 @@ Before creating a listing, we will need a route to display all of the listings. 
 
 > The index action is one of two read actions in CRUD. It is used to display all of the resources of a given type.
 
-## You Do: Log all listings
+## You do: Log all listings
 
 We have determined that we need a route for `GET` requests to `/listings`. Let's build it! Inside of `controllers/listings.js` do the following steps:
 
