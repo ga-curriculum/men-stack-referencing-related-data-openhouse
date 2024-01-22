@@ -1,7 +1,123 @@
 # ![[tktk Module Name] - Add Index Functionality to the Listings Landing Page](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to tktk
+**Learning objective:** By the end of this lesson, students will be able to apply the `populate()` method to index functionality.
 
-tktk Notes: Now that there is data in the DB for this resource we can display it. This is the first time students see the `.populate()` method, a thorough explanation of it would be good here.
+## User Story
 
-tktk Code: The final code for this lecture can be found at: <https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-referencing-related-data-real-estate-solution>
+Now that we have data in our database, let's focus on the next user story:
+
+- I want to view all the listings that have been created by every user on a single page.
+
+At the moment, we have a route and controller defined but we are not yet rendering the data to the view. When we display our listings, we'll want to include the `city` that each listing is in, as well as the `username` of the listing's `owner`. To accomplish this, we'll need to make use of the Mongoose `populate()` method.
+
+## The `populate()` method
+
+Recall the `owner` property on our `listingSchema`:
+
+```javascript
+// models/listing.js
+owner: {
+  type: mongoose.Schema.Types.ObjectId,
+  ref: 'User',
+}
+```
+
+The `owner` property stores the `ObjectId` of a `User` document. This pattern is known as **referencing**, where a document in one collection links to a document in another collection by storing a record of its `ObjectId`.
+
+Unlike embedding, where a parent document includes related sub-documents, with referencing we only store the `ObjectId` of the related document, not the actual data.
+
+While we could execute another database operation to retrieve the relevant `User` document, Mongoose provides a method for joining related data with [`populate()`](https://mongoosejs.com/docs/populate.html#population). 
+
+The `populate()` method replaces a specified path in a document with documents from other collections. It accepts a `string` specifying the path in the document that needs to be populated with data. 
+
+Take a look at the example below:
+
+```javascript
+const populatedListings = await Listing.find({}).populate('owner');
+```
+
+In this example, the `populate()` method is called on a `find()` operation. It specifies that the `ObjectId` held in the `owner` field should be replaced with the corresponding `User` document. This will apply to all `listings` (assuming they have an active `owner` field) returned by the `find()` operation.
+
+## Applying the `populate()` method
+
+Let's apply the `populate()` method to our existing `index` controller function. We'll use it to fill the `owner` path of each `listing` with the referenced `User` document. Later on, this will allow us to display the name of an owner beside each listing in our view.
+
+We'll start by getting a sense of how the `populate()` method changes the data returned from our `find()` operation.
+
+Update your controller function as shown below:
+
+```javascript
+// controllers/listings.js
+router.get('/', async (req, res) => {
+  try {
+    const populatedListings = await Listing.find({}).populate('owner');
+    console.log('Populated Listings:', populatedListings)
+    res.render('listings/index.ejs');
+  } catch (error) {
+    console.log(error);
+    res.redirect('/')
+  }
+});
+```
+
+In your browser, navigate to the listings landing page and check your terminal.
+
+You should see something like the following:
+
+```plaintext
+[
+  {
+    _id: new ObjectId('65a19015b411a7e80f3d79a3'),
+    streetAddress: '100 Random Road',
+    city: 'New York',
+    price: 2000,
+    size: 500,
+    owner: {
+      _id: new ObjectId('65a18ec324705dcb3e2b64aa'),
+      username: 'alex@email.com',
+      password: '**************',
+      __v: 0
+    },
+    __v: 0
+  }
+]
+```
+
+Before applying `.populate('owner')`, the `owner` property of each `listing` only held an `ObjectId`. Now that the related data is being joined, the `ObjectId` has been replaced with an actual `User` document.
+
+## Rendering data to the view
+
+Let's render our newly populated listing data.
+
+First, update the controller so that `populatedListings` is passed to the view as `listings`:
+
+```javascript
+// controllers/listings.js
+router.get('/', async (req, res) => {
+  try {
+    const populatedListings = await Listing.find({}).populate('owner');
+
+    // Add the following:
+    res.render('listings/index.ejs', {
+      listings: populatedListings,
+    });
+    
+  } catch (error) {
+    console.log(error);
+    res.redirect('/')
+  }
+});
+```
+
+And finally, add the following to the `<body>` of `views/listings/index.ejs`:
+
+```html
+<!-- views/listings/index.ejs -->
+  <ul>
+    <% listings.forEach((listing) => { %>
+      <li>
+        A listing in <%= listing.city %> owned by <%= listing.owner.username %>.
+      </li>
+    <% }) %>
+  </ul>
+```

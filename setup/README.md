@@ -2,13 +2,60 @@
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 
-tktk Notes: Clone base auth repo at <https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-session-auth-template>, set up `.env`, run `npm i`, add `.gitignore`.
+Open your Terminal application and navigate to your `~/code/ga/lectures` directory:
 
-tktk: here's a `.env` file for you to use while developing. This MDB URI hooks up to Ryan's Atlas account; it should not be shared with students in this lecture, they should use their own URI:
+```bash
+cd `~/code/ga/lectures`
+```
 
-MONGODB_URI=mongodb+srv://demo-user:demo-password@cluster0.coa9t5t.mongodb.net/relating-mern-app?retryWrites=true&w=majority
-SESSION_SECRET=keepitsecret
+Make a new directory called `tktk-app-name`, then enter this directory:
 
-tktk: Also, this app needs a name/theme! If inspiration strikes while you're building this out or you have a fun way to theme it 100% lean into it!
+```bash
+mkdir tktk-app-name
+cd tktk-app-name
+```
 
-tktk Code: The final code for this lecture can be found at: <https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-referencing-related-data-real-estate-solution>
+Clone the auth repo:
+
+```bash
+git clone https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-session-auth-template.git
+```
+
+Create a `.env` file in your project's root directory:
+
+```bash
+touch .env
+```
+
+Assign your MongoDB Atlas connection string to the `MONGODB_URI` environment variable and add a `SESSION_SECRET`:
+
+```plaintext
+MONGODB_URI=mongodb+srv://<username>:<password>@sei-w0kys.azure.mongodb.net/?retryWrites=true
+SESSION_SECRET=<yoursecret>
+```
+
+> 🚨 Do not use the above connection string in your application, it will not work.
+
+Install dependencies with:
+
+```bash
+npm i 
+```
+
+Create a `.gitignore` file in your project's root directory:
+
+```bash
+touch .gitignore
+```
+
+Add the following to your `.gitignore` file:
+
+```plaintext
+.env
+```
+
+Open the project's folder in VS Code:
+
+```bash
+code .
+```

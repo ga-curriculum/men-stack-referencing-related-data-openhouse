@@ -1,18 +1,92 @@
 # ![[tktk Module Name] - Add Unfavorite Functionality to the Show Page](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to tktk
+**Learning objective:** By the end of this lesson, students will be able to implement functionality for unfavoriting a resource.
+## User story
 
-tktk Notes: This functionality is very similar to the **Add Favorites Functionality to the Show Page** microlesson and I added extensive notes there, so check those out instead! 
+- AAU viewing the details of a listing that I have favorited, I should be able to unfavorite the listing.
 
-tktk App flow: We build each route with the following process:
+## Conceptualizing the route
 
-1. Conceptualize the route. No code is written here, all we are doing is deciding what our route should be to make future steps simpler.
-2. Build the UI (link or form) that will hit that route. Send any relevant data on the request. At this point the route should not function! This is a great prompt to move students into the next step:
-3. Scaffold the function that corresponds that that route. `console.log()` any relevant data (for example: `req.params`, `req.body`, etc) so we know what we have access to in the function and the shape of the data we're receiving from the front end. `res.send()` (not `res.render()`) a very brief message identifying the page so there is visual confirmation for students that the route worked. Have students thoroughly test and debug at this stage. Avoid code that does more than logging and doing the `res.send()` action for now.
-4. Write controller action. After confirming the route and data are accurate and accounted for, the rest of the controller action should be crafted.
-5. In the case of a GET request, respond with a view (you may need to build the view in this step, that is expected). Any other kind of request should redirect somewhere.
+Our route should listen for `DELETE` requests on `/listings/:listingId/favorited-by/:userId`. 
 
-tktk This follows the flow of data into and out of our server, ensuring students can test their work along the way and view data when necessary.
+| Action | What It Does | HTTP Verb | Route |
+| ------ | ------------ | --------- | ----- |
+| Unfavorite | Unfavorites a listing | `DELETE` | `/listings/:listingId/favorited-by/:userId` |
 
-tktk Code: The final code for this lecture can be found at: <https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-referencing-related-data-real-estate-solution>
+> 💡 We'll include the `userId` in our route to stay consistent with our functionality for adding favorites.
 
+## Building the UI
+
+Let's modify the favorites section of our show page with an 'Unfavorite it' button. As with adding favorites, we'll need to include `listing._id` and `user._id` in our `DELETE` request.
+
+Add the following to the `if` block:
+
+```html
+<!-- views/listings/show.ejs -->
+    <h2>Favorites</h2>
+    <p>Favorited by <%= listing.favoritedByUsers.length %> people.</p>
+    <% if (userHasFavorited) { %>
+      <p>You've favorited this listing!</p>
+      <form
+        action="/listings/<%= listing._id %>/favorited-by/<%= user._id %>?_method=DELETE"
+        method="POST"
+      >
+        <button type="submit">Unfavorite it</button>
+      </form>
+    <% } else { %>
+      ...
+    <% } %>
+```
+
+## Scaffolding the function
+
+Next, let's build the scaffolding for our controller function. With this we'll confirm that both the `listingId` and the `userId` are accessible through `req.params`.
+
+Add the following to `controllers/listings.js`:
+
+```javascript
+// controllers/listings.js
+router.delete('/:listingId/favorited-by/:userId', async (req, res) => {
+  try {
+    console.log('userId: ', req.params.userId)
+    console.log('listingId: ', req.params.listingId)
+    res.send(`Request to unfavorite ${req.params.listingId}`)
+  } catch (error) {
+    console.log(error);
+    res.redirect('/')
+  }
+});
+```
+
+In your browser, click on the 'Unfavorite it' button and check your VS Code terminal for the logged data.
+
+## Writing the controller action
+
+Now that we have confirmed access to `req.params.listingId` and `req.params.userId`, let's complete the controller action.
+
+Our goal here is to update a listing by **removing** a `userId` to the `favoritedByUsers` array. Once again we'll utilize the `findByIdAndUpdate()` method, but this time using the MongoDB `$pull` operator. 
+
+The [`$pull`](https://www.mongodb.com/docs/manual/reference/operator/update/pull/) behaves much like the `$push` operator, except that it **removes** a target value from the array:
+
+```javascript
+const updateObject = { $pull: { targetArray: valueForRemoval } }
+```
+
+In this case, we'll want to remove `req.params.userId` from `favoritedByUsers`.
+
+Update the function as shown below:
+
+```javascript
+// controllers/listings.js
+router.delete('/:listingId/favorited-by/:userId', async (req, res) => {
+  try {
+    await Listing.findByIdAndUpdate(req.params.listingId, {
+      $pull: { favoritedByUsers: req.params.userId },
+    });
+    res.redirect(`/listings/${req.params.listingId}`);
+  } catch (error) {
+    console.log(error);
+    res.redirect('/')
+  }
+});
+```

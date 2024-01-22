@@ -2,16 +2,103 @@
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 
-tktk Notes: Just an edit page, they've seen lots of these by this point, should be fairly straightforward.
+## User Story
 
-tktk App flow: We build each route with the following process:
+Let's address the next user story:
 
-1. Conceptualize the route. No code is written here, all we are doing is deciding what our route should be to make future steps simpler.
-2. Build the UI (link or form) that will hit that route. Send any relevant data on the request. At this point the route should not function! This is a great prompt to move students into the next step:
-3. Scaffold the function that corresponds that that route. `console.log()` any relevant data (for example: `req.params`, `req.body`, etc) so we know what we have access to in the function and the shape of the data we're receiving from the front end. `res.send()` (not `res.render()`) a very brief message identifying the page so there is visual confirmation for students that the route worked. Have students thoroughly test and debug at this stage. Avoid code that does more than logging and doing the `res.send()` action for now.
-4. Write controller action. After confirming the route and data are accurate and accounted for, the rest of the controller action should be crafted.
-5. In the case of a GET request, respond with a view (you may need to build the view in this step, that is expected). Any other kind of request should redirect somewhere.
+- AAU viewing the details of a listing that I own, I should be able to follow a link to be taken to a page where I can edit any of the details of a listing and update it from there.
 
-tktk This follows the flow of data into and out of our server, ensuring students can test their work along the way and view data when necessary.
+Much like creating a new resource, this functionality will require two requests:
 
-tktk Code: The final code for this lecture can be found at: <https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-referencing-related-data-real-estate-solution>
+1. A `GET` to render the edit view.
+2. A `PUT` to update the resource.
+
+We will begin with the `GET` request that renders the view.
+
+## Conceptualizing the route
+
+Our route should listen for `GET` requests on `/listings/:listingId`.
+
+| Action | What It Does | HTTP Verb | Route |
+| ------ | ------------ | --------- | ----- |
+| Edit | Renders a view for editing a specific listing | `GET` | `/listings/:listingId` |
+
+## Building the UI
+
+Next we'll need to add an anchor tag to our show view. Like our delete button, this link should only be visible to the owner of a listing.
+
+Update the `if` block as shown below:
+
+```html
+// views/listings/show.ejs
+    <% if (listing.owner._id.equals(user._id)) { %>
+      <p>You own this!</p>
+      <a href="/listings/<%= listing._id %>/edit">Edit this listing</a>
+```
+
+## Scaffolding the function
+
+Next, let's build the scaffolding for our controller:
+
+```javascript
+// controllers/listings.js
+router.get('/:listingId/edit', async (req, res) => {
+  try {
+    console.log('listingId: ', req.params.listingId);
+    res.send(`Listings edit view`);
+  } catch (error) {
+    console.log(error);
+    res.redirect('/')
+  }
+});
+```
+
+In your browser, navigate to the edit page and check your VS Code terminal for the logged data.
+
+## Writing the controller action
+
+With access to the `listingId` we can build out the rest of the function:
+
+```javascript
+// controllers/listings.js
+router.get('/:listingId/edit', async (req, res) => {
+  try {
+    const currentListing = await Listing.findById(req.params.listingId);
+    res.render('listings/edit.ejs', {
+      listing: currentListing,
+    });
+  } catch (error) {
+    console.log(error);
+    res.redirect('/')
+  }
+});
+```
+
+## Rendering the view
+
+Lastly, let's create our edit view.
+
+Run the following command in your terminal:
+
+```bash
+touch views/listings/edit.ejs
+```
+
+Add the following to `views/listings/edit.ejs`:
+
+```html
+<!-- views/listings/edit.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit <%= listing.name %></title>
+</head>
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+  <h1>Edit a Listing!</h1>
+
+</body>
+</html>
+```
