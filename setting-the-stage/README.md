@@ -17,7 +17,7 @@ Users can browse all listings, access listing details, create new listings, edit
 
 The application includes user authentication and authorization. Users must sign up and log in to create, edit, or delete a listing. Moreover, users can only edit or delete a listing if they are its owner.
 
-> A link to the fully built application can be found [here](#tktk-deployed-app-url).
+> The solution code for this module is located [here](https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-referencing-related-data-real-estate-solution)
 
 ## Project Planning
 
