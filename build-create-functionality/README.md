@@ -47,9 +47,9 @@ We can access the currently signed-in user on the `req.session` object. We can u
 
 ```js
 router.post('/', async (req, res) => {
-    req.body.owner = req.session.user._id;
-    await Listing.create(req.body);
-    res.redirect('/listings');
+	req.body.owner = req.session.user._id;
+	await Listing.create(req.body);
+	res.redirect('/listings');
 });
 ```
 

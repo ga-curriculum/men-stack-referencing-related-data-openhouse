@@ -49,24 +49,24 @@ After completing the above steps, you should see the message "Add a New Listing!
 We are at the point of accepting some data from the user; however, what should we accept? We have a schema for our listings and will use it to determine what data we need to accept from the user. Let's take a look at our schema fields for listings:
 
 ```js
-streetAddress: {
-        type: String,
-        required: true,
-    },
-    city: {
-        type: String,
-        required: true,
-    },
-    price: {
-        type: Number,
-        required: true,
-        min: 0,
-    },
-    size: {
-        type: Number,
-        required: true,
-        min: 0,
-    }
+  streetAddress: {
+    type: String,
+    required: true,
+  },
+  city: {
+    type: String,
+    required: true,
+  },
+  price: {
+    type: Number,
+    required: true,
+    min: 0,
+  },
+  size: {
+    type: Number,
+    required: true,
+    min: 0,
+  },
 ```
 
 We can see that we need to accept the following data from the user:
@@ -82,15 +82,15 @@ We are going to need a form field for each of these fields. Let's add these to o
 
 ```html
 <form>
-    <label for="street-address">Street Address:</label>
-    <input type="text" name="streetAddress" id="street-address" />
-    <label for="city">City:</label>
-    <input type="text" name="city" id="city" />
-    <label for="price">Price:</label>
-    <input type="number" name="price" id="price" min="0"/>
-    <label for="size">Size:</label>
-    <input type="number" name="size" id="size" min="0"/>
-    <button type="submit">Add Listing</button>
+	<label for="street-address">Street Address:</label>
+	<input type="text" name="streetAddress" id="street-address" />
+	<label for="city">City:</label>
+	<input type="text" name="city" id="city" />
+	<label for="price">Price:</label>
+	<input type="number" name="price" id="price" min="0"/>
+	<label for="size">Size:</label>
+	<input type="number" name="size" id="size" min="0"/>
+	<button type="submit">Add Listing</button>
 </form>
 ```
 

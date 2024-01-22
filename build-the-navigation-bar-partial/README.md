@@ -15,10 +15,10 @@ We are going to be leveraging partials to build our navbar. Partials are a way t
 
 ```html
 <nav>
-    <a href="/listings">View all Listings</a>
-    <a href="/auth/sign-out">Sign Out</a>
-    <a href="/auth/sign-up">Sign Up</a>
-    <a href="/auth/sign-in">Sign In</a>
+  <a href="/listings">View all Listings</a>
+  <a href="/auth/sign-out">Sign Out</a>
+  <a href="/auth/sign-up">Sign Up</a>
+  <a href="/auth/sign-in">Sign In</a>
 </nav>
 ```
 

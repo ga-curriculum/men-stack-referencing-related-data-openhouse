@@ -32,8 +32,8 @@ Awesome sauce. Now, we just have to handle the case of a user needing to be sign
 
 ```js
 const isSignedIn = (req, res, next) => {
-    if (req.session.user) return next();
-    res.redirect('/auth/sign-in');
+  if (req.session.user) return next();
+  res.redirect('/auth/sign-in');
 };
 ```
 
