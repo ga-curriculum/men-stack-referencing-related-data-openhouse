@@ -2,8 +2,6 @@
 
 **Learning objective:** By the end of this lesson, students will be understand many-to-many relationships in MongoDB
 
-tktk Notes: To be able to implement the functionality laid out in future user stories we need to evolve the Listing schema by adding `favoritedByUsers`. This is the first time students are seeing M:M functionality so we should spend time discussing that. It would also be good to discuss that we happen to be adding this relationship on something that already exists, but we don't necessary have to - we're only doing this because the functionality of the application aligns with this implementation (and as an additional benefit it is slightly easier to implement this functionality in our app).
-
 ## User story
 
 Take a look at the two user stories below:
@@ -16,15 +14,15 @@ To implement this functionality, we'll first need to add a new property to our `
 
 The `favoritedByUsers` property will facilitate a *many-to-many relationship* between listings and users.
 
-### What is a many-to-many relationship?
+## What is a many-to-many relationship?
 
-In a *many-to-many relationship*, multiple documents in one collection are associated with multiple documents in another collection. This kind of relationship is useful when multiple users need to be associated with a resource and vice versa. For example, a user can visit many places, and each place has been visited by many users.
+In a many-to-many relationship, multiple documents in one collection are associated with multiple documents in another collection. This kind of relationship is useful when multiple users need to be associated with a resource and vice versa. For example, a user can visit many places, and each place has been visited by many users.
 
 Our application currently has a **one-to-many** relationship between listing and user, where one user can own many listings. However, our favoriting functionality will require a **many-to-many**, as a listing can be favorited by many users, and a user can favorite many listings.
 
-## Updating the schema
+## Implementing a many-to-many
 
-The `favoritedByUsers` property will hold an array of references to user documents. Whenever a user marks a listing as a favorite, we'll update this array with their `ObjectId`.
+The `favoritedByUsers` property will hold an array of references to documents in the `User` collection. Whenever a user marks a listing as a favorite, we'll update this array with their `ObjectId`.
 
 Update your `listingSchema` with the following:
 
