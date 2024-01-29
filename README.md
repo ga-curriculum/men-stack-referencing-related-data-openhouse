@@ -14,7 +14,7 @@ In this module, you'll learn how to form relationships in MongoDB through refere
 
 | Lesson | Video Time | Video | Skills |
 | ------ |:----------:|:-----:| ------ |
-| [Setup](./setup/README.md) | -- | -- | tktk skills covered |
+| [Setup](./setup/README.md) | -- | -- | Setting up the development environment |
 | [Setting the Stage](./setting-the-stage/README.md) | -- | -- | tktk skills covered |
 | [Build the Listing Model](./build-the-listing-model/README.md) | -- | -- | tktk skills covered |
 | [Build and Use the Listings Controller](./build-and-use-the-listings-controller/README.md) | -- | -- | tktk skills covered |
