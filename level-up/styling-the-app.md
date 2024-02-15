@@ -1,5 +1,16 @@
 # ![[tktk Module Name] - Level Up - Style the Application](./assets/hero.png)
 
+Now that you've built a MEN-stack app with referencing, it's time to add some style. If you follow all of the steps of this level up you'll have an app that looks like this:
+
+
+![landing page](./assets/originals/landing.png)
+
+![sign up page](./assets/originals/position-relative.png)
+
+![show page](./assets/originals/show.png)
+
+![profile page](./assets/originals/profile.png)
+
 ## Setting up the middleware and static files
 
 1. First we need to add our middleware so that our app can read and apply our css rules. Add the following code to `server.js`:
