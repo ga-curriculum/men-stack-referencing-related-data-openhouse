@@ -26,7 +26,7 @@ The `owner` property stores the `ObjectId` of a user document. This pattern is k
 
 Unlike embedding, where a parent document includes related sub-documents, with referencing we only store the `ObjectId` of the related document, not the actual data.
 
-While we could execute another database operation to retrieve the relevant user document, Mongoose provides a method for joining related data with [`populate()`](https://mongoosejs.com/docs/populate.html#population). 
+While we could execute a separate database operation to retrieve the relevant user document, Mongoose provides a method for joining related data with [`populate()`](https://mongoosejs.com/docs/populate.html#population). 
 
 The `populate()` method replaces a specified path in a document with documents from other collections. It accepts a `string` specifying the path in the document that needs to be populated with data. 
 
@@ -48,6 +48,7 @@ Update your controller function as shown below:
 
 ```javascript
 // controllers/listings.js
+
 router.get('/', async (req, res) => {
   try {
     const populatedListings = await Listing.find({}).populate('owner');
@@ -93,6 +94,7 @@ First, update the controller so that `populatedListings` is passed to the view a
 
 ```javascript
 // controllers/listings.js
+
 router.get('/', async (req, res) => {
   try {
     const populatedListings = await Listing.find({}).populate('owner');
@@ -113,6 +115,7 @@ And finally, add the following to the `<body>` of `views/listings/index.ejs`:
 
 ```html
 <!-- views/listings/index.ejs -->
+
   <ul>
     <% listings.forEach((listing) => { %>
       <li>
