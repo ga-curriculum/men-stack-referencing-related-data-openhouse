@@ -107,17 +107,18 @@ This field is still in Mongoose, so we must give it a type. However, we are not 
 
 ## Compiling and exporting the model
 
-So far, we have only created a schema for our listing. This is just a blueprint for what our listing will look like. To have access to methods that would allow us to create, read, update, and delete listings, we need to compile our schema into a model. We do this by calling the `mongoose.model()` method and passing in the name of the model we want to create and the schema we want to use to create it. Lastly, we need to export this model because we want to use it in other files.
+So far, we have only created a schema for our listing - more or less a blueprint for what our listing will look like. To have access to methods that would allow us to create, read, update, and delete listings, we need to compile our schema into a model. We do this by calling the `mongoose.model()` method and passing in the name of the model we want to create and the schema we want to use to create it. Lastly, we need to export this model because we want to use it in other files:
 
 ```js
-// ... listingSchema located above
+// models/listing.js
 
+// ... listingSchema located above
 const Listing = mongoose.model('Listing', listingSchema);
 
 module.exports = Listing;
 ```
 
-That is it! We now have a model for our listing that we can use to create, read, update, and delete listings.
+That's it! We now have a model for our listing that we can use to create, read, update, and delete listings.
 
 ## Review questions
 
