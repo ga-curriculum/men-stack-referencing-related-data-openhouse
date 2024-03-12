@@ -17,6 +17,8 @@ Let's focus on the following user story:
 Before creating a listing, we need to create a Schema and Model for our listing. Let's create a new file in our `models` directory called `listing.js`. Inside `listings.js` let's create a new Schema for our listing:
 
 ```js
+// models/listing.js
+
 const mongoose = require('mongoose');
 
 const listingSchema = new mongoose.Schema({});
@@ -24,7 +26,7 @@ const listingSchema = new mongoose.Schema({});
 
 > 🏆 You should always use the [`new`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new) keyword when creating a new instance of a Schema. This is because we do not want to modify the Schema class itself; instead, we want to create a new instance of it. This is a common pattern in object-oriented programming and is best practice.
 
-First, we require in Mongoose. Then, we create a new instance of a Schema using the Schema class. The Schema class takes in an object of key-value pairs that represent our model's fields and data types. Looking at our ERD for the listing model, we can see that we need to track the following fields:
+First, we require Mongoose. Then, we create a new instance of a Schema using the Schema class. The Schema class takes in an object with key-value pairs that represent our model's fields and data types. Looking at our ERD for the listing model, we can see that we need to track the following fields:
 
 - Street address - String and is required
 - City - String and is required
@@ -34,6 +36,8 @@ First, we require in Mongoose. Then, we create a new instance of a Schema using 
 Translating this into JavaScript using the Mongoose library, we get the following:
 
 ```js
+// models/listing.js
+
 const mongoose = require('mongoose');
 
 const listingSchema = new mongoose.Schema({
@@ -64,11 +68,15 @@ const listingSchema = new mongoose.Schema({
 
 In Mongoose, there are two ways to represent relationships between data. The first is called embedding. This is where we nest one document inside another. The second is called referencing. This is where we store a reference to another document inside a document. 
 
-In our ERD, we have a one-to-many relationship between users and listings. While we could embed an array of listing document inside our user document, we will instead reference a user document inside a listing document. This will allow us to quickly check who owns a listing, and as a result, we will be able to control who can edit and delete a listing.
+In our ERD, we have a one-to-many relationship between users and listings. We could embed an array of listing documents inside our user document, but this would mean pulling in all user data whenever accessing a listing. 
+
+We will instead opt to reference a user document inside a listing document. This will allow us to quickly check who owns a listing, which will give us the ability to control who can edit and delete a listing.
 
 Let's put this into practice. First, we will need a field to represent this relationship. We will call this field `owner`. 
 
 ```js
+// models/listing.js
+
 // ... other properties located above
   size: {
     type: Number,
@@ -78,9 +86,11 @@ Let's put this into practice. First, we will need a field to represent this rela
   owner: {}
 ```
 
-This field is still in Mongoose, so we must give this field a type. However, we are not storing just a string or a number in this field. Instead, we are going to store a user's document object ID. There is a particular type in Mongoose for this called `mongoose.Schema.Types.ObjectId`. We will also need to tell Mongoose what model this field is referencing. We do this by adding the `ref` property to this field. In this case, we are referencing the `User` model.
+This field is still in Mongoose, so we must give it a type. However, we are not storing just a string or a number in this field. Instead, we are going to store a user's document object ID. There is a particular type in Mongoose for this called `mongoose.Schema.Types.ObjectId`. We will also need to tell Mongoose what model this field is referencing. We do this by adding the `ref` property to this field. In this case, we are referencing the `User` model.
 
 ```js
+// models/listing.js
+
 // ... other properties located above
   size: {
     type: Number,
