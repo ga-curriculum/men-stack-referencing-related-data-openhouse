@@ -13,6 +13,8 @@ However, we still need to do some prep work before we can create a listing. We h
 Let's create a new file in our `controllers` directory called `listings.js`. Inside `listings.js` let's set up our router, require in our listing model, and export our router:
 
 ```js
+// controllers/listings.js
+
 const express = require('express');
 const router = express.Router();
 
