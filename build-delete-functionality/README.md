@@ -1,6 +1,6 @@
 # ![MEN Stack Referencing Related Data - RealApp - Build Delete Functionality](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to tktk
+**Learning objective:** By the end of this lesson, students will be able to implement delete functionality in a MEN stack application. 
 
 ## User Story
 
@@ -10,7 +10,7 @@ Now that we have a working show page, let's address the next user story:
 
 The delete functionality outlined in this user story will require a few security measures.
 
-Currently, the owner section of our show page conditionally renders a message based on the listing's owner. This code will be useful for the delete button, as it should only be shown to the listing's owner
+Currently, the owner section of our show page conditionally renders a message based on the listing's owner. This code will be useful for the delete button, as it should only be shown to the listing's owner.
 
 In addition to conditionally rendering the delete button, we'll add an extra layer of security in our controller action. This **protected controller action** will prevent unauthorized users from deleting listings. Should a user attempt to delete a listing they don't own, they will receive a message: "You don't have permission to do that."
 
@@ -34,6 +34,7 @@ In `views/listings/show.ejs`, update the `if` block with the following:
 
 ```html
 <!-- views/listings/show.ejs -->
+
  <% if (listing.owner._id.equals(user._id)) { %>
       <p>You own this!</p>
 
@@ -55,8 +56,9 @@ This step will help us verify the following:
 
 Add the following to `controllers/listings.js`:
 
-```javascript
+```js
 // controllers/listings.js
+
 router.delete('/:listingId', async (req, res) => {
   try {
     console.log('listingId: ', req.params.listingId)
@@ -87,6 +89,7 @@ First, let's retrieve the listing using the `findById()` method:
 
 ```javascript
 // controllers/listings.js
+
 router.delete('/:listingId', async (req, res) => {
   try {
     const listing = await Listing.findById(req.params.listingId);
@@ -100,12 +103,13 @@ router.delete('/:listingId', async (req, res) => {
 
 ### Implementing a permission check
 
-Next, let's address the perission check.
+Next, let's address the permission check.
 
 Update the function with the following `if...else`:
 
 ```javascript
 // controllers/listings.js
+
 router.delete('/:listingId', async (req, res) => {
   try {
 
@@ -129,7 +133,7 @@ router.delete('/:listingId', async (req, res) => {
 
 Let's take a moment to explore the [`deleteOne()`](https://mongoosejs.com/docs/5.x/docs/api/model.html#model_Model.deleteOne) method.
 
-When called on a document instance, `deleteOne()` removes that document from the database.
+When called on a document instance, `deleteOne()` removes that document from the database:
 
 ```javascript
 const docInstance = await Model.findById(req.params.modelId);
@@ -141,6 +145,8 @@ docInstance.deleteOne();
 Update the function as shown below:
 
 ```javascript
+// controllers/listings.js
+
 router.delete('/:listingId', async (req, res) => {
   try {
     const listing = await Listing.findById(req.params.listingId);
