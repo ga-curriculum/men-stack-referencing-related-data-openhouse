@@ -36,22 +36,14 @@ In this module, you'll learn how to form relationships in MongoDB through refere
 
 | Lesson | Video Time | Video | Skills |
 | ------ |:----------:|:-----:| ------ |
-| [Formatting Currency](./level-up/formatting-currency.md) | -- | -- | tktk skills covered |
+| [Formatting Currency](./level-up/formatting-currency.md) | -- | -- | Formatting currency in JavaScript. |
 | [Viewing a User's Favorite Listings](./level-up/viewing-a-users-favorite-listings.md) | -- | -- | Displaying related user data. |
-| [Accounting for User Preferences](./level-up/accounting-for-user-preferences.md) | -- | -- | tktk skills covered |
 | **Total Level Up content**                                          | -- | -- |                     |
 
 ## References
 
 📖 [Reference Materials](./references/README.md)
 
-## Deployed sites
-
-tktk If there is not a deployed site related to this module this section and all of its content should be removed.
-
-🌐 [Live site](#tktk-deployed-app-url)
-
-🐙 [Repository](#tktk-repository-for-deployed-app)
 
 ## Internal resources
 

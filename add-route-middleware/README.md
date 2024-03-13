@@ -1,6 +1,6 @@
 # ![MEN Stack Referencing Related Data - OpenHouse - Add Route Middleware](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to tktk
+**Learning objective:** By the end of this lesson, students will be able to create middleware to test authentication and pass user data to rendered views. 
 
 ## Authentication middleware - protecting listings routes
 
