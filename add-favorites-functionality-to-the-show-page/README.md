@@ -1,4 +1,4 @@
-# ![MEN Stack Referencing Related Data - RealApp - Add Favorites Functionality to the Show Page](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - OpenHouse - Add Favorites Functionality to the Show Page](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to implement functionality for favoriting a resource.
 

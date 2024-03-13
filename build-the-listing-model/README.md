@@ -1,4 +1,4 @@
-# ![MEN Stack Referencing Related Data - RealApp - Build the Listing Model](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - OpenHouse - Build the Listing Model](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 

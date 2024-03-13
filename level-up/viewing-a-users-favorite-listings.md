@@ -1,4 +1,4 @@
-# ![MEN Stack Referencing Related Data - RealApp - Level Up - Viewing a User's Favorite Listings](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - OpenHouse - Level Up - Viewing a User's Favorite Listings](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to create a profile page for displaying data related with a user.
 

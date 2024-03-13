@@ -1,4 +1,4 @@
-# ![MEN Stack Referencing Related Data - RealApp - Level Up - Formatting Currency](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - OpenHouse - Level Up - Formatting Currency](./assets/hero.png)
 
 ## Formatting currency in JavaScript
 

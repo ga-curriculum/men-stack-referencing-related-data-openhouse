@@ -1,4 +1,4 @@
-# ![MEN Stack Referencing Related Data - RealApp - Wrap Up](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - OpenHouse - Wrap Up](./assets/hero.png)
 
 **Learning Objective:** By the end of this lesson, students will understand the planning and functionality essential for building this application.
 

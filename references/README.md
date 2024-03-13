@@ -1,4 +1,4 @@
-# ![MEN Stack Referencing Related Data - RealApp - References](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - OpenHouse - References](./assets/hero.png)
 
 ## Lesson references
 

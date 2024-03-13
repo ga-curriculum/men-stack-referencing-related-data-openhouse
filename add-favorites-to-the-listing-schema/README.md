@@ -1,4 +1,4 @@
-# ![MEN Stack Referencing Related Data - RealApp - Add Favorites to the Listing Schema](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - OpenHouse - Add Favorites to the Listing Schema](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will understand many-to-many relationships in MongoDB.
 

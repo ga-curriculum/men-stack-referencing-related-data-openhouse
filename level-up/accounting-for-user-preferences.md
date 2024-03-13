@@ -1,4 +1,4 @@
-# ![MEN Stack Referencing Related Data - RealApp - Level Up - Accounting for User Preferences](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - OpenHouse - Level Up - Accounting for User Preferences](./assets/hero.png)
 
 tktk Notes: If there is time to build this (stretch goal 2), as a level up activity it would be cool if we could accomodate global users of this app and display the size of a listing using imperial (sq ft) or metric (sq meter) units based on a user's preferences. A few topics could be covered as part of this:
 

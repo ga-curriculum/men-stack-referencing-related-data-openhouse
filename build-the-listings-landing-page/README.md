@@ -1,4 +1,4 @@
-# ![MEN Stack Referencing Related Data - RealApp - Build the Listings Landing Page](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - OpenHouse - Build the Listings Landing Page](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to construct a landing page for a resource in a MEN stack application.
 

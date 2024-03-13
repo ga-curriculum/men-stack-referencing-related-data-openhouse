@@ -1,4 +1,4 @@
-# ![MEN Stack Referencing Related Data - RealApp - Setting the Stage](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - OpenHouse - Setting the Stage](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 

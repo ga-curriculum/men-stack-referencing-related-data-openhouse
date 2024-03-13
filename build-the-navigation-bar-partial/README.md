@@ -1,4 +1,4 @@
-# ![MEN Stack Referencing Related Data - RealApp - Build the Navigation Bar Partial](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - OpenHouse - Build the Navigation Bar Partial](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to implement a partial in a MEN stack application.
 

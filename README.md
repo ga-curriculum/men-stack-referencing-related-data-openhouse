@@ -1,4 +1,4 @@
-# ![MEN Stack Referencing Related Data - RealApp](./assets/tktk-hero.png)
+# ![MEN Stack Referencing Related Data - OpenHouse](./assets/tktk-hero.png)
 
 ## About
 
@@ -6,8 +6,6 @@ In this module, you'll learn how to form relationships in MongoDB through refere
 
 ## Prerequisites
 
-- tktk
-- tktk
 - tktk
 
 ## Content

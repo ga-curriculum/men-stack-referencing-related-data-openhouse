@@ -1,4 +1,4 @@
-# ![MEN Stack Referencing Related Data - RealApp - Add Index Functionality to the Listings Landing Page](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - OpenHouse - Add Index Functionality to the Listings Landing Page](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to apply the `populate()` method to index functionality.
 

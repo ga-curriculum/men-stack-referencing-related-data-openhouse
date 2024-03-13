@@ -1,4 +1,4 @@
-# ![MEN Stack Referencing Related Data - RealApp - Build the Show Page](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - OpenHouse - Build the Show Page](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to build the functionality for displaying a single resource on its own page.
 

@@ -1,4 +1,4 @@
-# ![MEN Stack Referencing Related Data - RealApp - Build and Use the Listing Controller](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - OpenHouse - Build and Use the Listing Controller](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to tktk
 
