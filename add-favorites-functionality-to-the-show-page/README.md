@@ -33,6 +33,7 @@ Add the following to `views/listings/show.ejs`:
 
 ```html
 <!-- views/listings/show.ejs -->
+
     <h2>Favorites</h2>
     <p>Favorited by <%= listing.favoritedByUsers.length %> people.</p>
     <form
@@ -49,8 +50,9 @@ Next, let's build the scaffolding for our controller function. With this we'll c
 
 Add the following to `controllers/listings.js`:
 
-```javascript
+```js
 // controllers/listings.js
+
 router.post('/:listingId/favorited-by/:userId', async (req, res) => {
   try {
     console.log('userId: ', req.params.userId)
@@ -67,7 +69,7 @@ In your browser, click on the 'Favorite it!' button and check your VS Code termi
 
 ## Writing the controller action
 
-Now that we have confirmed access to `req.params.listingId` and `req.params.userId`, let's complete the controller action.\
+Now that we have confirmed access to `req.params.listingId` and `req.params.userId`, let's complete the controller action.
 
 Our controller action will update a listing by adding a `userId` to the `favoritedByUsers` array. For this we'll utilize the [`findByIdAndUpdate()`](https://mongoosejs.com/docs/api/model.html#Model.findByIdAndUpdate()) method.
 
@@ -82,7 +84,7 @@ The [*`$push`*](https://www.mongodb.com/docs/manual/reference/operator/update/pu
 
 When used inside an update object, we would see something like the following syntax:
 
-```javascript
+```js
 const updateObject = { $push: { targetArray: newValue } }
 ```
 
@@ -90,8 +92,9 @@ For our purposes, we'll be adding `req.params.userId` to `favoritedByUsers`.
 
 Update the function as shown below:
 
-```javascript
+```js
 // controllers/listings.js
+
 router.post('/:listingId/favorited-by/:userId', async (req, res) => {
   try {
     await Listing.findByIdAndUpdate(req.params.listingId, {
@@ -117,8 +120,9 @@ This determination can actually be handled in the corresponding controller actio
 
 Update the 'show' controller as demonstrated below:
 
-```javascript
+```js
 // controllers/listings.js
+
 router.get('/:listingId', async (req, res) => {
   try {
     const populatedListings = await Listing.findById(
@@ -148,6 +152,7 @@ Next we'll update our view with an `if...else` block:
 
 ```html
 <!-- views/listings/show.ejs -->
+
     <h2>Favorites</h2>
     <p>Favorited by <%= listing.favoritedByUsers.length %> people.</p>
 
@@ -158,12 +163,13 @@ Next we'll update our view with an `if...else` block:
     <% } %>
 ```
 
-> 🏆 Notice how concise our conditional rendering is here. This is a direct result of the additional work we did in our controller action. While it's possible to achieve this functionality entirely in the view, it is a better practice to handle complex logic like this in controllers.
+> 🏆 Notice how concise our conditional rendering is here. This is a direct result of the additional work we did in our controller action. While it's possible to achieve this functionality entirely in the view, it is better practice to handle complex logic like this in controllers.
 
 Finally, move the `<form>` and `<button>` into the `else` block:
 
 ```html
 <!-- views/listings/show.ejs -->
+
     <h2>Favorites</h2>
 
     <p>Favorited by <%= listing.favoritedByUsers.length %> people.</p>
@@ -183,4 +189,4 @@ Finally, move the `<form>` and `<button>` into the `else` block:
     <% } %>
 ```
 
-In your browser, try favoriting a listing. Verify that the UI changes as expected.
+In your browser, try favoriting a listing. Verify that the UI changes as expected! 

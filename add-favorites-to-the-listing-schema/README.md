@@ -1,6 +1,6 @@
 # ![MEN Stack Referencing Related Data - RealApp - Add Favorites to the Listing Schema](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be understand many-to-many relationships in MongoDB
+**Learning objective:** By the end of this lesson, students will understand many-to-many relationships in MongoDB.
 
 ## User story
 
@@ -18,16 +18,17 @@ The `favoritedByUsers` property will facilitate a *many-to-many relationship* be
 
 In a many-to-many relationship, multiple documents in one collection are associated with multiple documents in another collection. This kind of relationship is useful when multiple users need to be associated with a resource and vice versa. For example, a user can visit many places, and each place has been visited by many users.
 
-Our application currently has a **one-to-many** relationship between listing and user, where one user can own many listings. However, our favoriting functionality will require a **many-to-many**, as a listing can be favorited by many users, and a user can favorite many listings.
+Our application currently has a **one-to-many** relationship between listing and user, where one user can own many listings. However, our favoriting functionality will require a **many-to-many** relationship, as a listing can be favorited by many users, and a user can favorite many listings.
 
-## Implementing a many-to-many
+## Implementing a many-to-many relationship
 
-The `favoritedByUsers` property will hold an array of references to documents in the `User` collection. Whenever a user marks a listing as a favorite, we'll update this array with their `ObjectId`.
+The `favoritedByUsers` property will hold an array of references to documents in the `User` collection. Whenever a user marks a listing as a favorite, we'll add their `ObjectId` to this array.
 
 Update your `listingSchema` with the following:
 
-```javascript
+```js
 // models/listing.js
+
 const listingSchema = new mongoose.Schema({
   // ... other properties above
   favoritedByUsers: [
@@ -39,4 +40,4 @@ const listingSchema = new mongoose.Schema({
 });
 ```
 
-Now if we ever want to see how many people have favorited a listing, we can access the `length` of the `favoritedByUsers` array. By checking the array for a specific `ObjectId`, we'll be able to determine whether a specific user has favorited the listing or not. 
+There are two benefits to this setup. First, if we ever want to see how many people have favorited a listing, we can access the `length` of the `favoritedByUsers` array. Second, by checking the array for a specific `ObjectId`, we'll be able to determine whether a specific user has favorited the listing or not. 
