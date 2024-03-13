@@ -1,6 +1,6 @@
 # ![MEN Stack Referencing Related Data - OpenHouse - Setting the Stage](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to tktk
+**Learning objective:** By the end of this lesson, students will get experience with creating User Stories and ERDs for a MEN stack application.
 
 ## Real estate app
 

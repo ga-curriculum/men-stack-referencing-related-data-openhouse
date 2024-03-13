@@ -1,6 +1,6 @@
 # ![MEN Stack Referencing Related Data - OpenHouse - Build and Use the Listing Controller](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to tktk
+**Learning objective:** By the end of this lesson, students will be able to require and mount a controller file. 
 
 ## Building the listings controller
 

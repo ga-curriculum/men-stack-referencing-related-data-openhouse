@@ -1,6 +1,6 @@
 # ![MEN Stack Referencing Related Data - OpenHouse - Build the Listing Model](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to tktk
+**Learning objective:** By the end of this lesson, students will be able to create a schema for a resource and export it as a model. 
 
 ## Building the listing model
 

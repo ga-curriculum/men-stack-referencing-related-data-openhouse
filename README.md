@@ -12,14 +12,14 @@ In this module, you'll learn how to form relationships in MongoDB through refere
 
 | Lesson | Video Time | Video | Skills |
 | ------ |:----------:|:-----:| ------ |
-| [Setup](./setup/README.md) | -- | -- | Setting up the development environment |
-| [Setting the Stage](./setting-the-stage/README.md) | -- | -- | tktk skills covered |
-| [Build the Listing Model](./build-the-listing-model/README.md) | -- | -- | tktk skills covered |
-| [Build and Use the Listings Controller](./build-and-use-the-listings-controller/README.md) | -- | -- | tktk skills covered |
-| [Add Route Middleware](./add-route-middleware/README.md) | -- | -- | tktk skills covered |
-| [Build the Listings Landing Page](./build-the-listings-landing-page/README.md) | -- | -- | tktk skills covered |
-| [Build the Navigation Bar Partial](./build-the-navigation-bar-partial/README.md) | -- | -- | tktk skills covered |
-| [Build the New Page](./build-the-new-page/README.md) | -- | -- | tktk skills covered |
+| [Setup](./setup/README.md) | -- | -- | Setting up the development environment. |
+| [Setting the Stage](./setting-the-stage/README.md) | -- | -- | Developing User Stories and an ERD. |
+| [Build the Listing Model](./build-the-listing-model/README.md) | -- | -- | Creating a model for the listing resource. |
+| [Build and Use the Listings Controller](./build-and-use-the-listings-controller/README.md) | -- | -- | Require and mount a controller file.  |
+| [Add Route Middleware](./add-route-middleware/README.md) | -- | -- | Create middleware to check authentication and pass user data to the view. |
+| [Build the Listings Landing Page](./build-the-listings-landing-page/README.md) | -- | -- | Construct a landing page for a resource. |
+| [Build the Navigation Bar Partial](./build-the-navigation-bar-partial/README.md) | -- | -- | Create NavBar partials. |
+| [Build the New Page](./build-the-new-page/README.md) | -- | -- | Construct a New page view with a form for user input. |
 | [Build Create Functionality](./build-create-functionality/README.md) | -- | -- | Implementing create functionality. |
 | [Add Index Functionality to the Listings Landing Page](./add-index-functionality-to-the-listings-landing-page/README.md) | -- | -- | Applying the `populate()` method to index functionality. |
 | [Build the Show Page](./build-the-show-page/README.md) | -- | -- | Displaying a single resource on its own page. |
