@@ -41,7 +41,7 @@ const formatter = new Intl.NumberFormat('en-US', {
 formatter.format(500); /* CA$500.00 */
 ```
 
-We can see a full list of values for the `currency` values by running this code in our Node REPL:
+We can see a full list of values for the `currency` values by running this code:
 
 ```js
 Intl.supportedValuesOf("currency").forEach((currency) => {
@@ -79,7 +79,7 @@ We can see that we get the result we expect. We can also see that we are using t
 
 When working with currency, we need to consider where we are formatting our currency. We can format our currency on the client-side or the server-side. Let's take a look at the pros and cons of each:
 
-**Clinet-side formatting:**
+**Client-side formatting:**
 
 - Pros:
   - Less load on the server.
