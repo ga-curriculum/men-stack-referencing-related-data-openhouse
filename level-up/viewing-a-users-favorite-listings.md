@@ -64,7 +64,7 @@ Import the `usersController` in `server.js`:
 const usersController = require('./controllers/users.js')
 ```
 
-And mount the controller:
+Then mount the controller:
 
 ```js
 // server.js
@@ -138,6 +138,8 @@ In your browser, once again navigate to the profile page and check your VS Code 
 After verifying the data, be sure to render and pass `myListings` and `myFavoriteListings` to the view:
 
 ```js
+// controllers/users.js
+
     res.render('users/show.ejs', {
       myListings, myFavoriteListings
     });
