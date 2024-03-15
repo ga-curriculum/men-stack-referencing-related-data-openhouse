@@ -74,7 +74,7 @@ For listings, we need to keep track of:
 - Price - Number, minimum of 0, and is required
 - Size - Number, a minimum of 0, and is required
 
-[tktk - Hunter can you make a ERD for this above data? No relationships yet, just the data.]
+![Entities](./assets/entities.png)
 
 > 💡 We are intentionally leaving off the favorites feature for now. We will add a field/value pair for this feature when we add relationships to our ERD.
 
@@ -82,6 +82,4 @@ Now, let's add in the relationships. First, let's dive into the relationship bet
 
 We also have the favorites functionality that we will be adding later. A user can favorite many listings, and a listing can be favorited by many users. This is a many-to-many relationship. To represent this in our ERD, we must have a new field name to house the relationship. We will call this field `favoritedBy`.
 
-[tktk - Hunter (David) here's a demo ERD, this should be replaced when assets are created, but it's a start:]
-
-![Job Applications ERD](./assets/tktk-erd-placeholder.png)
+![Relationships](./assets/relationships.png)
