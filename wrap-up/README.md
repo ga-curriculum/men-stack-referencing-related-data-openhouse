@@ -33,7 +33,7 @@ User stories are often used as a checklist to work through as we build out an ap
 
 Entity relationship diagrams (ERDs) are a way to visualize the structure of the data in an application. They are often used to plan out the structure of an application's database.
 
-[tktk - Hunter - once the ERD is finalized, add it here too]
+![Entity relationship diagram](./assets/erd.png)
 
 ## Referencing one-to-many relationships
 

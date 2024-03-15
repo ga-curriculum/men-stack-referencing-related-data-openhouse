@@ -1,4 +1,4 @@
-# ![MEN Stack Referencing Related Data - OpenHouse](./assets/tktk-hero.png)
+# ![MEN Stack Referencing Related Data - OpenHouse](./assets/hero.png)
 
 ## About
 
@@ -36,8 +36,9 @@ In this module, you'll learn how to form relationships in MongoDB through refere
 
 | Lesson | Video Time | Video | Skills |
 | ------ |:----------:|:-----:| ------ |
-| [Formatting Currency](./level-up/formatting-currency.md) | -- | -- | Formatting currency in JavaScript. |
-| [Viewing a User's Favorite Listings](./level-up/viewing-a-users-favorite-listings.md) | -- | -- | Displaying related user data. |
+| [Formatting Currency](./formatting-currency/README.md) | -- | -- | Formatting currency in JavaScript. |
+| [Viewing a User's Favorite Listings](./viewing-a-users-favorite-listings.md/README.md) | -- | -- | Displaying related user data. |
+| [Style the Application](./style-the-application/README.md) | -- | -- | Displaying related user data. |
 | **Total Level Up content**                                          | -- | -- |                     |
 
 ## References

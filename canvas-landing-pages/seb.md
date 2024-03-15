@@ -1,4 +1,4 @@
-# ![MEN Stack Referencing Related Data - OpenHouse](../assets/tktk-hero.png)
+# ![MEN Stack Referencing Related Data - OpenHouse](../assets/hero.png)
 
 ## About
 
