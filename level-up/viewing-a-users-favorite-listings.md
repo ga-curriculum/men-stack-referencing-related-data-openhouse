@@ -1,4 +1,4 @@
-# ![MEN Stack Referencing Related Data - RealApp - Level Up - Viewing a User's Favorite Listings](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - OpenHouse - Level Up - Viewing a User's Favorite Listings](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to create a profile page for displaying data related with a user.
 
@@ -26,6 +26,7 @@ First, let's add the following anchor tag to the navbar:
 
 ```html
 <!-- views/partials/_navbar.ejs -->
+
 <a href="/users/profile">Profile</a>
 ```
 
@@ -45,8 +46,9 @@ touch controllers/users.js
 
 And add the following boilerplate:
 
-```javascript
+```js
 // controllers/users.js
+
 const express = require('express');
 const router = express.Router();
 const Listing = require('../models/listing.js');
@@ -56,15 +58,17 @@ module.exports = router;
 
 Import the `usersController` in `server.js`:
 
-```javascript
+```js
 // server.js
+
 const usersController = require('./controllers/users.js')
 ```
 
-And mount the controller:
+Then mount the controller:
 
-```javascript
+```js
 // server.js
+
 app.use('/users', isSignedIn, usersController);
 ```
 
@@ -74,8 +78,9 @@ Next, let's build the scaffolding for our controller function. With this, we'll 
 
 Add the following:
 
-```javascript
+```js
 // controllers/users.js
+
 router.get('/profile', async (req, res) => {
   try {
     console.log('user: ', req.session.user);
@@ -101,8 +106,9 @@ The `find()` operation accepts an object with any criteria we wish to query by. 
 
 Add the following:
 
-```javascript
+```js
 // controllers/users.js
+
 router.get('/profile', async (req, res) => {
   try {
 
@@ -131,7 +137,9 @@ In your browser, once again navigate to the profile page and check your VS Code 
 
 After verifying the data, be sure to render and pass `myListings` and `myFavoriteListings` to the view:
 
-```javascript
+```js
+// controllers/users.js
+
     res.render('users/show.ejs', {
       myListings, myFavoriteListings
     });
@@ -151,6 +159,7 @@ Start by adding the following:
 
 ```html
 <!-- views/users/show.ejs -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -180,6 +189,7 @@ Add the following to the 'My Listings' section:
 
 ```html
 <!-- views/users/show.ejs -->
+
     <h2>My Listings</h2>
     <p>
       You own
@@ -200,6 +210,7 @@ Next, add the following `<ul>` to the 'My Listings' section:
 
 ```html
 <!-- views/users/show.ejs -->
+
     <ul>
       <% myListings.forEach((listing) => { %>
         <li>

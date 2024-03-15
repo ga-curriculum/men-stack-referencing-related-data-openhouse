@@ -1,13 +1,13 @@
-# ![MEN Stack Referencing Related Data - RealApp - Build Create Functionality](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - OpenHouse - Build Create Functionality](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to tktk
+**Learning objective:** By the end of this lesson, students will be able to build create functionality for a resource in a MEN stack application. 
 
 ## `POST` a new listing
 
 The action for creating a new listing breaks down into two parts:
 
-- Render a form for the user to enter the listing details.
-- Using the form data, create the listing in the database.
+- Rendering a form for the user to enter the listing details.
+- Using the form data to create the listing in the database.
 
 In the last section, we completed the first of the above tasks to create a new listing. Now, we are going to focus on the second task. We want to use the form data to create a new listing in the database. Since we are accepting data from the user, we know that we need a `POST` route to `/listings`. Let's add this route to our routes table:
 
@@ -22,6 +22,8 @@ In the last section, we completed the first of the above tasks to create a new l
 Now we know what our route should be, let's update our form in `views/listings/new.ejs` to send a `POST` request to `/listings`:
 
 ```html
+<!-- views/listings/new.ejs -->
+
 <form action="/listings" method="POST">
 ```
 
@@ -41,9 +43,9 @@ After you have completed the above steps, you should be able to see the data fro
 
 ## Database insertion
 
-We have the form data! However, we still need one last piece of the puzzle. If we look at our schema again, we see we have the field `owner`. We intentionally left that out of the form because we don't want the user to be able to set the owner of a listing. We want the currently signed-in user to create a listing they own. 
+We have the form data! However, we still need one last piece of the puzzle. If we look at our schema again, we see the field `owner`. We intentionally left that out of the form, because we don't want the user to be able to set the owner of a listing. Instead, we want the currently signed-in user to be 'automatically' assigned to a listing they create. 
 
-We can access the currently signed-in user on the `req.session` object. We can use this to set the owner of the listing. Let's update our route to create a new listing in the database:
+Recall that we can access the currently signed-in user on the `req.session` object. We can use this to set the owner of the listing in our controller function. Let's update our route to create a new listing in the database:
 
 ```js
 router.post('/', async (req, res) => {
@@ -53,7 +55,7 @@ router.post('/', async (req, res) => {
 });
 ```
 
-> 💡 If we were to `console.log` the `req.body` object after we add the `owner` key, we would see an object that directly matches our schema. Since this is the case, we can feed the `req.body` object directly into the `Listing.create()` method.
+> 💡 If we were to `console.log` the `req.body` object after we add the `owner` key, we would see an object that directly matches our schema. Since this is the case, we can pass the `req.body` object directly into the `Listing.create()` method.
 
 ## Review questions
 

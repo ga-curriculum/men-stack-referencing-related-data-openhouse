@@ -1,10 +1,10 @@
-# ![MEN Stack Referencing Related Data - RealApp - Add Unfavorite Functionality to the Show Page](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - OpenHouse - Add Unfavorite Functionality to the Show Page](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to implement functionality for unfavoriting a resource.
 
 ## User story
 
-Take a look at the next user story. This should mirror the logic used to favorite a listing quite closely.
+Take a look at the next user story - it mirrors the logic used to favorite a listing quite closely:
 
 - AAU viewing the details of a listing that I have favorited, I should be able to unfavorite the listing.
 
@@ -26,6 +26,7 @@ Add the following `<form>` to the `if` block:
 
 ```html
 <!-- views/listings/show.ejs -->
+
     <h2>Favorites</h2>
     <p>Favorited by <%= listing.favoritedByUsers.length %> people.</p>
     <% if (userHasFavorited) { %>
@@ -49,8 +50,9 @@ Next, let's build the scaffolding for our controller function. With this we'll c
 
 Add the following to `controllers/listings.js`:
 
-```javascript
+```js
 // controllers/listings.js
+
 router.delete('/:listingId/favorited-by/:userId', async (req, res) => {
   try {
     console.log('userId: ', req.params.userId)
@@ -63,7 +65,7 @@ router.delete('/:listingId/favorited-by/:userId', async (req, res) => {
 });
 ```
 
-In your browser, click on the 'Unfavorite it' button and check your VS Code terminal for the logged data.
+In your browser, click on the 'Unfavorite it' button and check your VSCode terminal for the logged data.
 
 ## Writing the controller action
 
@@ -73,7 +75,7 @@ Our goal here is to update a listing by **removing** a `userId` from the `favori
 
 The [*`$pull`*](https://www.mongodb.com/docs/manual/reference/operator/update/pull/) behaves much like the `$push` operator, except that it **removes** a target value from the array:
 
-```javascript
+```js
 const updateObject = { $pull: { targetArray: valueForRemoval } }
 ```
 
@@ -81,8 +83,9 @@ In this case, we'll want to remove `req.params.userId` from `favoritedByUsers`.
 
 Update the function as shown below:
 
-```javascript
+```js
 // controllers/listings.js
+
 router.delete('/:listingId/favorited-by/:userId', async (req, res) => {
   try {
     await Listing.findByIdAndUpdate(req.params.listingId, {

@@ -1,4 +1,4 @@
-# ![MEN Stack Referencing Related Data - RealApp - Build the Show Page](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - OpenHouse - Build the Show Page](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to build the functionality for displaying a single resource on its own page.
 
@@ -22,10 +22,11 @@ Our route should listen for `GET` requests on `/listings/:listingId`.
 
 Next we'll need to make a small change in `views/listings/index.ejs`. The UI that issues our `GET` request will be an anchor tag that prompts the user to 'View more details' about a particular listing. We'll also need to include the `listing._id` in the request URL. This will allow us to retrieve a specific listing in our controller.
 
-Update the `<li>` with the achor element as shown below:
+Update the `<li>` with the anchor element as shown below:
 
 ```html
 <!-- views/listings/index.ejs -->
+
 <li>
   A listing in <%= listing.city %> owned by <%= listing.owner.username %>.
   <a href="/listings/<%= listing._id %>">View more details.</a>
@@ -43,8 +44,9 @@ This scaffolding will help us confirm a few things:
 
 Add the following to `controllers/listings.js`:
 
-```javascript
+```js
 // controllers/listings.js
+
 router.get('/:listingId', async (req, res) => {
   try {
     console.log('listingId: ', req.params.listingId);
@@ -64,10 +66,11 @@ Now that our function has access to the `listingId`, we can retrieve a specific 
 
 Update the function as shown below:
 
-```javascript
+```js
+// controllers/listings.js
+
 router.get('/:listingId', async (req, res) => {
   try {
-    
     const populatedListings = await Listing.findById(
       req.params.listingId
     ).populate('owner');
@@ -75,7 +78,6 @@ router.get('/:listingId', async (req, res) => {
     res.render('listings/show.ejs', {
       listing: populatedListings,
     });
-
   } catch (error) {
     console.log(error);
     res.redirect('/');
@@ -93,9 +95,9 @@ We'll want **two sections** here:
 
 1. A **details section** with information on the listing, including its `city`, `size`, `price`, and `streetAddress`.
 
-2. An **owner section** section displaying the `username` of the listing `owner`, with a message indicating whether the user viewing the listing is the owner of the property.
+2. An **owner section** displaying the `username` of the listing `owner`, with a message indicating whether the user viewing the listing is the owner of the property.
 
-Run the following command in your terminal:
+Run the following command in your terminal to create a `show.ejs` file:
 
 ```bash
 touch views/listings/show.ejs
@@ -107,6 +109,7 @@ Add the following to the view:
 
 ```html
 <!-- views/listings/show.ejs -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -128,19 +131,20 @@ Add the following to the view:
 </html>
 ```
 
-Next, let's add a section for information on the owner. We'll make use of some conditional rendering here.
+Finally, let's add a section for information on the owner. We'll make use of some conditional rendering here.
 
 Add the following to the view:
 
 ```html
 <!-- views/listings/show.ejs -->
-    <h2>Owner</h2>
-    <% if (listing.owner._id.equals(user._id)) { %>
-      <p>You own this!</p>
-    <% } else { %>
-      <p>You don't own this, <%= listing.owner.username %> does!</p>
-    <% } %>
-  </body>
+
+  <h2>Owner</h2>
+  <% if (listing.owner._id.equals(user._id)) { %>
+    <p>You own this!</p>
+  <% } else { %>
+    <p>You don't own this, <%= listing.owner.username %> does!</p>
+  <% } %>
+</body>
 ```
 
 > 💡 Remember, thanks to the `populate()` method, the `owner` property of a `listing` is now an object containing user data.

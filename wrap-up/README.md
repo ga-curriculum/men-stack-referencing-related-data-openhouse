@@ -1,4 +1,4 @@
-# ![tktk Module Name - Wrap Up](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - OpenHouse - Wrap Up](./assets/hero.png)
 
 **Learning Objective:** By the end of this lesson, students will understand the planning and functionality essential for building this application.
 
@@ -17,9 +17,9 @@ Our real estate application allows users to create listings for the properties t
 - Owner
 - Users who have favorited the listing
 
-Users can browse all listings, access listing details, create new listings, edit existing ones, and delete listings. Additionally, users can favorite or unfavor a listing.
+Users can browse all listings, access listing details, create new listings, edit existing ones, and delete listings. Additionally, users can favorite or unfavorite a listing.
 
-We built out our user stories and ERD to help us plan out this application. We also built out our application in a way that we can easily add new features to it. 
+We built out our user stories and ERD to help us plan out this application. We also built out our application in a way where we can easily add new features to it. 
 
 ### User stories
 
@@ -31,9 +31,9 @@ User stories are often used as a checklist to work through as we build out an ap
 
 ### ERD
 
-Enitiy relationship diagrams (ERDs) are a way to visualize the structure of the data in an application. They are often used to plan out the structure of an application's database.
+Entity relationship diagrams (ERDs) are a way to visualize the structure of the data in an application. They are often used to plan out the structure of an application's database.
 
-tktk - Hunter - once the ERD is finalized, add it here too
+[tktk - Hunter - once the ERD is finalized, add it here too]
 
 ## Referencing one-to-many relationships
 
@@ -64,7 +64,7 @@ const listingSchema = new Schema({
 
 > 💡 We use the `ref` key to tell Mongoose which collection to use for the reference. In this case, we are referencing the `User` collection.
 
-Lastly, we could have embedded the `listingSchema` inside of the `userSchema` to accomplish much the same relationship. This would still be a one-to-many relationship. However, we have choosen to reference the `User` collection from the `Listing` collection.
+Lastly, we could have embedded the `listingSchema` inside of the `userSchema` to accomplish much the same relationship. This would still be a one-to-many relationship. However, we have chosen to reference the `User` collection from the `Listing` collection.
 
 ## Referencing many-to-many relationships
 
@@ -76,7 +76,7 @@ A many-to-many relationships can be formed by:
 
 1. Adding an array field to the Schema:
 
-```javascript
+```js
 const listingSchema = new mongoose.Schema({
 	// other fields
   favoritedByUsers: [ ],
@@ -97,11 +97,11 @@ const listingSchema = new mongoose.Schema({
 });
 ```
 
-In this case, embedding would not have been a viable option as it was with our one-to-many relationship. Unlike one-to-many relationships where a single parent can hold multiple children, in many-to-many relationships, each entity must exist independently, in order to form connections to a variety of other entities.
+In this case, embedding would not have been a viable option as it was with our one-to-many relationship. Unlike one-to-many relationships where a single parent can hold multiple children, in many-to-many relationships, each entity must exist independently in order to form connections to a variety of other entities.
 
 With our many-to-many relationship in place, we utilized the `populate()` method for data retrieval:
 
-```javascript
+```js
 const populatedListings = await Listing.find({}).populate('owner');
 ```
 
@@ -121,7 +121,7 @@ To do so, we applied the following strategies:
 
 2. Protected controller actions on the server:
 
-```javascript
+```js
 if (listing.owner.equals(req.session.user._id)) {
 	...
 } else {

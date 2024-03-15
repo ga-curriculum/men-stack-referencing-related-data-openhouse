@@ -1,10 +1,12 @@
-# ![MEN Stack Referencing Related Data - RealApp - Build the Listings Landing Page](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - OpenHouse - Build the Listings Landing Page](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to tktk
+**Learning objective:** By the end of this lesson, students will be able to construct a landing page for a resource in a MEN stack application.
 
 ## Route for `GET` all listings
 
-Before creating a listing, we will need a route to display all of the listings. This way, we can redirect users to this listings page after they create a new listing. Let's start by thinking of this route to get all the listings. We can determine that we need a `GET` request to `/listings`. This will be our index route for listings.
+Before creating a listing, we will need a route to display all of the listings. This way, we can redirect users to this listings page after they create a new listing.
+
+We can determine that we need a `GET` request to `/listings`. This will be our index route for listings:
 
 | Action | What It Does | HTTP Verb | Route |
 | ------ | ------------ | --------- | ----- |
@@ -27,13 +29,15 @@ We have determined that we need a route for `GET` requests to `/listings`. Let's
 
 After completing the above steps, you should see the message "Listings index page" in the browser. You should also see an empty array in the terminal. This is because we have yet to create any listings.
 
-Make sure you have debugged your application before moving on.
+Make sure you have debugged your application before moving on!
 
 ## Rendering the listings index page
 
-We have confirmed that our route is working; now it's time to render the listings index page. For right now, we are not going to worry about handling any data; we just want to set up a place that we can add to in the future. Let's create a new directory called `listings` in our `views` directory. Inside of `views/listings`, create a new file called `index.ejs`. Inside of `index.ejs`, let's add the following code:
+We have confirmed that our route is working; now it's time to render the listings index page. For right now, we are not going to worry about displaying any data, we just want to set up a view that we can add to in the future. Let's create a new directory called `listings` in our `views` directory. Inside of `views/listings`, create a new file called `index.ejs`. Inside of `index.ejs`, let's add the following code:
 
 ```html
+<!-- views/listings/index.ejs -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,11 +52,5 @@ We have confirmed that our route is working; now it's time to render the listing
 </html>
 ```
 
-> 💡 VS Code allows us to add boilerplate HTML by typing `!` and hitting the `tab` key.
+Now that we have an index page for our listings, let's render this page in our route. Inside of `controllers/listings.js`, update the route to render the new listings index page. 
 
-Now, we have an index page for our listings. Let's render this page in our route. Inside of `controllers/listings.js` update our route to render the listings index page:
-
-```js
-// located inside the index route
-res.render('listings/index.ejs');
-```

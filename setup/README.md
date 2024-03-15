@@ -1,4 +1,4 @@
-# ![MEN Stack Referencing Related Data - RealApp - Setup](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - OpenHouse - Setup](./assets/hero.png)
 
 Open your Terminal application and navigate to your `~/code/ga/lectures` directory:
 
@@ -6,11 +6,11 @@ Open your Terminal application and navigate to your `~/code/ga/lectures` directo
 cd `~/code/ga/lectures`
 ```
 
-Make a new directory called `tktk-app-name`, then enter this directory:
+Make a new directory called `open-house`, then enter this directory:
 
 ```bash
-mkdir tktk-app-name
-cd tktk-app-name
+mkdir open-house
+cd open-house
 ```
 
 Clone the auth repo:
