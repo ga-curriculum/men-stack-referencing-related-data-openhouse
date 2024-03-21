@@ -1,59 +1,104 @@
-# ![MEN Stack Referencing Related Data - OpenHouse - Setup](./assets/hero.png)
+# ![MEN Stack Referencing Related Data - Open-House - Setup](./assets/hero.png)
+
+## Setup
 
 Open your Terminal application and navigate to your `~/code/ga/lectures` directory:
 
 ```bash
-cd `~/code/ga/lectures`
+cd ~/code/ga/lectures
 ```
 
-Make a new directory called `open-house`, then enter this directory:
+## Cloning the Auth boilerplate
+
+This lecture uses the [`MEN Stack Auth Template`](https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-session-auth-template) as starter code. Doing so allows us to have a connection established to our MongoDB Atlas, add functioning auth for our user model, and install some of the packages we will need for our app build.
+
+Navigate to the [MEN Stack Auth Template](https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-session-auth-template) and clone the repository to your machine:
 
 ```bash
-mkdir open-house
+git clone git@git.generalassemb.ly:modular-curriculum-all-courses/men-stack-session-auth-template.git
+```
+
+Once we have the repository on our machines, we can change the name of the directory to better reflect a hip real estate app for tracking your favorite listings, OpenHouse!
+
+```bash
+mv men-stack-session-auth-template open-house
+```
+
+Next, `cd` into your renamed directory:
+
+```bash
 cd open-house
 ```
 
-Clone the auth repo:
+Finally, remove the existing `.git` information from this template:
 
 ```bash
-git clone https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-session-auth-template.git
+rm -rf .git
 ```
 
-Create a `.env` file in your project's root directory:
+> Removing the `.git` info is important as this is just a starter template provided by GA. You do not need the existing git history for this project.
+
+
+## GitHub setup
+
+To add this project to GitHub, initialize a new Git repository:
 
 ```bash
-touch .env
+git init
+git add .
+git commit -m "init commit"
 ```
 
-Assign your MongoDB Atlas connection string to the `MONGODB_URI` environment variable and add a `SESSION_SECRET`:
+Make a new repository on [GitHub](https://github.com/) named `open-house`. 
 
-```plaintext
-MONGODB_URI=mongodb+srv://<username>:<password>@sei-w0kys.azure.mongodb.net/?retryWrites=true
-SESSION_SECRET=<yoursecret>
-```
-
-> 🚨 Do not use the above connection string in your application, it will not work.
-
-Install dependencies with:
+Link your local project to your remote GitHub repo:
 
 ```bash
-npm i 
+git remote add origin https://github.com/<github-username>/open-house.git
+git push origin main
 ```
 
-Create a `.gitignore` file in your project's root directory:
+> 🚨 Do not copy the above command. It will not work. Your GitHub username will replace `<github-username>` (including the `<` and `>`) in the URL above.
 
-```bash
-touch .gitignore
-```
-
-Add the following to your `.gitignore` file:
-
-```plaintext
-.env
-```
-
-Open the project's folder in VS Code:
+Open the project's folder in your code editor:
 
 ```bash
 code .
 ```
+
+## Install dependencies
+
+Next, you will want to install all of the packages listed in `package.json`
+
+```bash
+npm i
+```
+
+## Create your .gitignore
+
+Once these files are created, add `.env`, `package-lock.json`, and `node_modules` to your `.gitignore` file.  Doing so will prevent those files and directories from being tracked and we can be confident that any data we add there will not be pushed up to GitHub.
+
+```text
+.env
+node_modules
+package-lock.json
+```
+
+## Create your .env
+
+Lastly, we want to create `MONGODB_URI` and `SESSION_SECRET` to hold values used in our auth logic.  `MONGODB_URI` will connect to your MongoDB Atlas connection string so you will need to establish one for this application.  `SESSION_SECRET` will aid in your auth session logic.
+
+Add a `.env` file to your application and add the following secret keys to your application:
+
+```text
+MONGODB_URI=
+SESSION_SECRET=
+```
+
+Start the server and you are ready for launch. 
+
+```bash
+nodemon start
+```
+
+Happy Coding! 
