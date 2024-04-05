@@ -45,6 +45,10 @@ In this module, you'll learn how to form relationships in MongoDB through refere
 
 📖 [Reference Materials](./references/README.md)
 
+## Solution code
+
+🏁 [Solution code](https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-referencing-related-data-openhouse-solution)
+
 ## Internal resources
 
 ✏️ [Instructor Guide](./internal-resources/instructor-guide.md)
