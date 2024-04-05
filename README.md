@@ -6,7 +6,7 @@ In this module, you'll learn how to form relationships in MongoDB through refere
 
 ## Prerequisites
 
-- tktk
+- Mongoose Relationships
 
 ## Content
 

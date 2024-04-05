@@ -13,5 +13,3 @@
 ## Level Up references
 
 - [`Int.NumberFormat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat).
-- [tktk descriptive name of link]()
-- [tktk descriptive name of link]()

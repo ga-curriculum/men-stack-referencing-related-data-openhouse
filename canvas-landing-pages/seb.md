@@ -5,8 +5,9 @@
 In this module, you'll learn how to form relationships in MongoDB through referencing.
 
 ## Content
-| Lesson                                                                                                                   | Video Time | Video | Skills                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------ | :--------: | :---: | ------------------------------------------------------------------------- |
+
+| Lesson                                                                                                                    | Video Time | Video | Skills                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------- | :--------: | :---: | ------------------------------------------------------------------------- |
 | [Setup](../setup/README.md)                                                                                               |     --     |  --   | Setting up the development environment.                                   |
 | [Setting the Stage](../setting-the-stage/README.md)                                                                       |     --     |  --   | Developing User Stories and an ERD.                                       |
 | [Build the Listing Model](../build-the-listing-model/README.md)                                                           |     --     |  --   | Creating a model for the listing resource.                                |
@@ -28,8 +29,8 @@ In this module, you'll learn how to form relationships in MongoDB through refere
 
 ## Level Up content
 
-| Lesson                                                                                 | Video Time | Video | Skills                             |
-| -------------------------------------------------------------------------------------- | :--------: | :---: | ---------------------------------- |
+| Lesson                                                                                  | Video Time | Video | Skills                             |
+| --------------------------------------------------------------------------------------- | :--------: | :---: | ---------------------------------- |
 | [Formatting Currency](../formatting-currency/README.md)                                 |     --     |  --   | Formatting currency in JavaScript. |
 | [Viewing a User's Favorite Listings](../viewing-a-users-favorite-listings.md/README.md) |     --     |  --   | Displaying related user data.      |
 | [Style the Application](../style-the-application/README.md)                             |     --     |  --   | Displaying related user data.      |
