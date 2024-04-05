@@ -1,12 +1,12 @@
 # ![MEN Stack Referencing Related Data - OpenHouse - Add Route Middleware](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to create middleware to test authentication and pass user data to rendered views. 
+**Learning objective:** By the end of this lesson, students will be able to create middleware to test authentication and pass user data to rendered views.
 
 ## Authentication middleware - protecting listings routes
 
 We are still on the user story:
 
-- As a user, I want to create a listing for my real estate.
+> As a user, I want to create listings for my real estate properties, to advertise them to potential buyers or renters.
 
 There is the last prep item to tackle before we can create a listing. We need to add some middleware to our application to protect this route from users who are not logged in, and set up an object to help with our authorization when we get to our edit and delete functionality.
 
@@ -41,7 +41,7 @@ const isSignedIn = (req, res, next) => {
 };
 ```
 
-If there is a `req.session.user`, the function returns and invokes the next function in the middleware pipeline. Otherwise, `res.redirect()` is invoked, sending the user to the sign in page. 
+If there is a `req.session.user`, the function returns and invokes the next function in the middleware pipeline. Otherwise, `res.redirect()` is invoked, sending the user to the sign in page.
 
 Now that we've created our middleware function, we need to export it to use in our application. At the bottom of `is-signed-in.js` let's export our middleware function:
 
@@ -59,21 +59,21 @@ Over in `server.js`, let's import our middleware function. Then, let's use the `
 // other require statements for libraries above
 
 // require in middleware
-const isSignedIn = require('./middleware/is-signed-in.js'); 
+const isSignedIn = require('./middleware/is-signed-in.js');
 
 const authController = require('./controllers/auth.js');
 const listingsController = require('./controllers/listings.js');
 
-// . . . 
+// . . .
 
 app.use('/auth', authController);
 // add middleware to protect listings routes
-app.use('/listings', isSignedIn, listingsController); 
+app.use('/listings', isSignedIn, listingsController);
 ```
 
 ## Authorization middleware - listing owner
 
-Next, let's set up an object to help with authorization for when we get to our edit and delete functionality. We know we can access the currently signed-in user on the `req.session` object. This will let us assign the currently signed-in user to the `res.locals` object. Passing user data to `res.locals` will allow us to access the information in views, for dynamic visuals like saying hello to the user. 
+Next, let's set up an object to help with authorization for when we get to our edit and delete functionality. We know we can access the currently signed-in user on the `req.session` object. This will let us assign the currently signed-in user to the `res.locals` object. Passing user data to `res.locals` will allow us to access the information in views, for dynamic visuals like saying hello to the user.
 
 To do this, we need to create a new middleware function that will assign the signed-in user to the `res.locals` object. Let's create a new file in our `middleware` directory called `pass-user-to-view.js`. Inside `pass-user-to-view.js` create a middleware function that follows the standard Express signature for middleware functions. We are going to use the function name of `passUserToView`:
 
@@ -104,7 +104,7 @@ Success! We now have a middleware function that will assign the current signed-i
 // other require statements for libraries above
 const isSignedIn = require('./middleware/is-signed-in.js');
 // require in middleware
-const passUserToView = require('./middleware/pass-user-to-view.js'); 
+const passUserToView = require('./middleware/pass-user-to-view.js');
 
 // Router/Controller requires statements and database connection
 
@@ -117,7 +117,7 @@ app.use(
 );
 
 // add passUserToView middleware function to Express application
-app.use(passUserToView); 
+app.use(passUserToView);
 
 app.get('/', (req, res) => {
   res.render('index.ejs', {
@@ -127,9 +127,3 @@ app.get('/', (req, res) => {
 ```
 
 > 💡 Using the `next()` method in Express is a way to move to the following action in our Express application. After we have assigned the current signed-in user to the `res.locals` object, we want to move on to the next action in our Express application. In this case, that is the `app.get()` method call for the root route.
-
-## Review questions
-
-1. What is the purpose of route middleware?
-2. What is the difference between authentication and authorization?
-3. What is the difference between `req.session` and `res.locals`?

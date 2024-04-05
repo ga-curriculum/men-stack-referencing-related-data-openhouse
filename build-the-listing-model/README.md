@@ -6,20 +6,20 @@
 
 The stater code provided the basic user authentication functionality for our application, so we can already check off three of our user stories:
 
-- As a new user, I want to easily create a new account, so I can access personalized features and services on the platform.
-- As a registered user, I want to log in to my account, so I can access my personal data and interact with the platform's features.
-- As a logged-in user, I want the ability to log out of my account, to ensure its secure when I'm not using the platform.
+> As a new user, I want to easily create a new account, so I can access personalized features and services on the platform.
+> As a registered user, I want to log in to my account, so I can access my personal data and interact with the platform's features.
+> As a logged-in user, I want the ability to log out of my account, to ensure its secure when I'm not using the platform.
 
 Let's focus on the following user story:
 
-- As a user, I want to create listings for my real estate properties, to advertise them to potential buyers or renters.
+> As a user, I want to create listings for my real estate properties, to advertise them to potential buyers or renters.
 
 Before creating a listing, we need to create a Schema and Model for our listing. Let's create a new file in our `models` directory called `listing.js`. Inside `listings.js` let's create a new Schema for our listing:
 
 ```js
 // models/listing.js
 
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const listingSchema = new mongoose.Schema({});
 ```
@@ -38,7 +38,7 @@ Translating this into JavaScript using the Mongoose library, we get the followin
 ```js
 // models/listing.js
 
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const listingSchema = new mongoose.Schema({
   streetAddress: {
@@ -113,7 +113,7 @@ So far, we have only created a schema for our listing - a blueprint for what our
 // models/listing.js
 
 // ... listingSchema located above
-const Listing = mongoose.model("Listing", listingSchema);
+const Listing = mongoose.model('Listing', listingSchema);
 
 module.exports = Listing;
 ```

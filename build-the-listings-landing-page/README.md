@@ -8,9 +8,9 @@ Before creating a listing, we will need a route to display all of the listings. 
 
 We can determine that we need a `GET` request to `/listings`. This will be our index route for listings:
 
-| Action | What It Does | HTTP Verb | Route |
-| ------ | ------------ | --------- | ----- |
-| Index | Displays all listings | `GET` | `/listings` |
+| Action | What It Does          | HTTP Verb | Route       |
+| ------ | --------------------- | --------- | ----------- |
+| Index  | Displays all listings | `GET`     | `/listings` |
 
 > 💡 The index action is one of two read actions in CRUD. It is used to display all of the resources of a given type.
 
@@ -40,17 +40,15 @@ We have confirmed that our route is working; now it's time to render the listing
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>All Listings</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Here's all the Listings</h1>
-    
-</body>
+  </body>
 </html>
 ```
 
-Now that we have an index page for our listings, let's render this page in our route. Inside of `controllers/listings.js`, update the route to render the new listings index page. 
-
+Now that we have an index page for our listings, let's render this page in our route. Inside of `controllers/listings.js`, update the route to render the new listings index page.
