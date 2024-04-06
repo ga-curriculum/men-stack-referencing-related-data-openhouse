@@ -199,20 +199,20 @@ Adding the empty `<div>` with the class of `landing-image` will give us a place 
   margin: 0 10px;
 }
 
-a:first-child {
+.auth-links > a:first-child {
   background-color: #274c9c;
 }
 
-a:first-child:hover {
+.auth-links > a:first-child:hover {
   background-color: black;
   color: white;
 }
 
-a:nth-child(2) {
+.auth-links > a:nth-child(2) {
   background-color: #6f8dae;
 }
 
-a:nth-child(2):hover {
+.auth-links > a:nth-child(2):hover {
   background-color: black;
   color: white;
 }
