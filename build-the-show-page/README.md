@@ -1,12 +1,12 @@
 # ![MEN Stack Referencing Related Data - OpenHouse - Build the Show Page](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to build the functionality for displaying a single resource on its own page.
+**Learning objective:** By the end of this lesson, students will be able to build the functionality for displaying a single resource on its `show` page.
 
 ## User story
 
 Now that we are displaying all the listings on our index view, let's take a look at the next user story:
 
-- I want to view all the details of a listing, including its owner, on a new page by following a link from that index page.
+> As a user interested in a property, I want to view all details of a listing, including information about its owner, by following a link from the main listing page.
 
 Based on our user story, the show page should include information on the owner of the listing. Once again, we'll be utilizing the `populate()` method to join the referenced data.
 
@@ -14,9 +14,9 @@ Based on our user story, the show page should include information on the owner o
 
 Our route should listen for `GET` requests on `/listings/:listingId`.
 
-| Action | What It Does | HTTP Verb | Route |
-| ------ | ------------ | --------- | ----- |
-| Show | Display a single listing | `GET` | `/listings/:listingId` |
+| Action | What It Does             | HTTP Verb | Route                  |
+| ------ | ------------------------ | --------- | ---------------------- |
+| Show   | Display a single listing | `GET`     | `/listings/:listingId` |
 
 ## Building the UI
 
@@ -35,7 +35,7 @@ Update the `<li>` with the anchor element as shown below:
 
 ## Scaffolding the function
 
-Next, let's build the scaffolding for our controller function. 
+Next, let's build the scaffolding for our controller function.
 
 This scaffolding will help us confirm a few things:
 
@@ -53,7 +53,7 @@ router.get('/:listingId', async (req, res) => {
     res.send(`Listings show page`);
   } catch (error) {
     console.log(error);
-    res.redirect('/')
+    res.redirect('/');
   }
 });
 ```
@@ -89,7 +89,7 @@ router.get('/:listingId', async (req, res) => {
 
 ## Rendering the view
 
-Let's outline some of the things we'll need to accomplish in our show view. 
+Let's outline some of the things we'll need to accomplish in our show view.
 
 We'll want **two sections** here:
 
@@ -103,7 +103,7 @@ Run the following command in your terminal to create a `show.ejs` file:
 touch views/listings/show.ejs
 ```
 
-Let's address the boilerplate and listing details section first. 
+Let's address the boilerplate and listing details section first.
 
 Add the following to the view:
 
@@ -126,7 +126,6 @@ Add the following to the view:
     <p>House Size: <%= listing.size %> sq ft</p>
     <p>Price: $<%= listing.price %></p>
     <p>Street address: <%= listing.streetAddress %></p>
-
   </body>
 </html>
 ```

@@ -33,16 +33,16 @@ Back in our `_navbar.ejs` file, let's add some logic to conditionally render our
 
 <nav>
   <% if (user) { %>
-    <a href="/listings">View all Listings</a>
-    <a href="/auth/sign-out">Sign Out</a>
+  <a href="/listings">View all Listings</a>
+  <a href="/auth/sign-out">Sign Out</a>
   <% } else { %>
-    <a href="/auth/sign-up">Sign Up</a>
-    <a href="/auth/sign-in">Sign In</a>
+  <a href="/auth/sign-up">Sign Up</a>
+  <a href="/auth/sign-in">Sign In</a>
   <% } %>
 </nav>
 ```
 
-## You Do: Add navbar to listings index page
+## 🎓 You Do: Add navbar to listings index page
 
 Next, let's add our new navbar partial to our listings index page. Inside of `views/listings/index.ejs`, include the navbar partial. Test this by manually going to `localhost:3000/listings` in the browser.
 

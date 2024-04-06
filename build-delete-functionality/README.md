@@ -1,12 +1,12 @@
 # ![MEN Stack Referencing Related Data - OpenHouse - Build Delete Functionality](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to implement delete functionality in a MEN stack application. 
+**Learning objective:** By the end of this lesson, students will be able to implement `delete` functionality in a MEN stack application.
 
 ## User Story
 
 Now that we have a working show page, let's address the next user story:
 
-- AAU viewing the details of a listing that I own, I should be able to click a button and delete the listing.
+> As a user who owns a listing, I want the option to delete a listing I created, in case the property is no longer available.
 
 The delete functionality outlined in this user story will require a few security measures.
 
@@ -20,9 +20,9 @@ In addition to conditionally rendering the delete button, we'll add an extra lay
 
 Our route should listen for `DELETE` requests on `/listings/:listingId`.
 
-| Action | What It Does | HTTP Verb | Route |
-| ------ | ------------ | --------- | ----- |
-| Delete | Delete a single listing | `DELETE` | `/listings/:listingId` |
+| Action | What It Does            | HTTP Verb | Route                  |
+| ------ | ----------------------- | --------- | ---------------------- |
+| Delete | Delete a single listing | `DELETE`  | `/listings/:listingId` |
 
 ## Building the UI
 
@@ -35,19 +35,19 @@ In `views/listings/show.ejs`, update the `if` block with the following:
 ```html
 <!-- views/listings/show.ejs -->
 
- <% if (listing.owner._id.equals(user._id)) { %>
-      <p>You own this!</p>
+<% if (listing.owner._id.equals(user._id)) { %>
+<p>You own this!</p>
 
-      <form action="/listings/<%= listing._id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete this listing</button>
-      </form>
+<form action="/listings/<%= listing._id %>?_method=DELETE" method="POST">
+  <button type="submit">Delete this listing</button>
+</form>
 ```
 
 > 🚨 Make sure to include `listing._id` in the request. We'll need this to identify the listing that needs to be removed in our controller action.
 
 ## Scaffolding the function
 
-Next, let's build the scaffolding for our controller function. 
+Next, let's build the scaffolding for our controller function.
 
 This step will help us verify the following:
 
@@ -61,17 +61,17 @@ Add the following to `controllers/listings.js`:
 
 router.delete('/:listingId', async (req, res) => {
   try {
-    console.log('listingId: ', req.params.listingId)
-    console.log('user: ', req.session.user)
-    res.send(`A DELETE request was issued for ${req.params.listingId}`)
+    console.log('listingId: ', req.params.listingId);
+    console.log('user: ', req.session.user);
+    res.send(`A DELETE request was issued for ${req.params.listingId}`);
   } catch (error) {
     console.log(error);
-    res.redirect('/')
+    res.redirect('/');
   }
 });
 ```
 
-In your browser, click on the delete button and check your VS Code terminal for the logged data.
+In your browser, click on the delete button and check your terminal for the logged data.
 
 ## Writing the controller action
 
@@ -93,10 +93,10 @@ First, let's retrieve the listing using the `findById()` method:
 router.delete('/:listingId', async (req, res) => {
   try {
     const listing = await Listing.findById(req.params.listingId);
-    res.send(`A DELETE request was issued for ${req.params.listingId}`)
+    res.send(`A DELETE request was issued for ${req.params.listingId}`);
   } catch (error) {
     console.log(error);
-    res.redirect('/')
+    res.redirect('/');
   }
 });
 ```
@@ -112,19 +112,18 @@ Update the function with the following `if...else`:
 
 router.delete('/:listingId', async (req, res) => {
   try {
-
     const listing = await Listing.findById(req.params.listingId);
 
     if (listing.owner.equals(req.session.user._id)) {
-      console.log("Permission granted");
+      console.log('Permission granted');
     } else {
-      console.log("Permission denied");
+      console.log('Permission denied');
     }
 
-    res.send(`A DELETE request was issued for ${req.params.listingId}`)
+    res.send(`A DELETE request was issued for ${req.params.listingId}`);
   } catch (error) {
     console.log(error);
-    res.redirect('/')
+    res.redirect('/');
   }
 });
 ```

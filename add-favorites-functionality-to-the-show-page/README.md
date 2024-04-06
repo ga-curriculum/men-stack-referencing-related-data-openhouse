@@ -4,17 +4,18 @@
 
 ## User story
 
-With our `listingSchema` updated, we should be ready to handle the following user story:
+With our `listingSchema` updated, we should be ready to handle the following user stories:
 
-- AAU viewing the details of a listing, I should be able to see how many people have favorited that listing, and be able to favorite it myself.
+> As a user, I want to see the number of favorites a listing has received, to gauge its popularity and potential demand.
+> As a user, I want to favorite a listing, so I can easily find and review it later.
 
 ## Conceptualizing the route
 
 Our route should listen for `POST` requests on `/listings/:listingId/favorited-by/:userId`.
 
-| Action | What It Does | HTTP Verb | Route |
-| ------ | ------------ | --------- | ----- |
-| Create | Favorites a listing | `POST` | `/listings/:listingId/favorited-by/:userId` |
+| Action | What It Does        | HTTP Verb | Route                                       |
+| ------ | ------------------- | --------- | ------------------------------------------- |
+| Create | Favorites a listing | `POST`    | `/listings/:listingId/favorited-by/:userId` |
 
 > 🧠 We could technically omit `:userId` from our route since our auth middleware already gives us access to `user` through `req.session`. However, the pattern you see here is common in development and worth practicing.
 
@@ -34,14 +35,14 @@ Add the following to `views/listings/show.ejs`:
 ```html
 <!-- views/listings/show.ejs -->
 
-    <h2>Favorites</h2>
-    <p>Favorited by <%= listing.favoritedByUsers.length %> people.</p>
-    <form
-      action="/listings/<%= listing._id %>/favorited-by/<%= user._id %>"
-      method="POST"
-    >
-      <button type="submit">Favorite it!</button>
-    </form>
+<h2>Favorites</h2>
+<p>Favorited by <%= listing.favoritedByUsers.length %> people.</p>
+<form
+  action="/listings/<%= listing._id %>/favorited-by/<%= user._id %>"
+  method="POST"
+>
+  <button type="submit">Favorite it!</button>
+</form>
 ```
 
 ## Scaffolding the function
@@ -55,9 +56,9 @@ Add the following to `controllers/listings.js`:
 
 router.post('/:listingId/favorited-by/:userId', async (req, res) => {
   try {
-    console.log('userId: ', req.params.userId)
-    console.log('listingId: ', req.params.listingId)
-    res.send(`Request to favorite ${req.params.listingId}`)
+    console.log('userId: ', req.params.userId);
+    console.log('listingId: ', req.params.listingId);
+    res.send(`Request to favorite ${req.params.listingId}`);
   } catch (error) {
     console.log(error);
     res.redirect('/');
@@ -65,27 +66,27 @@ router.post('/:listingId/favorited-by/:userId', async (req, res) => {
 });
 ```
 
-In your browser, click on the 'Favorite it!' button and check your VS Code terminal for the logged data.
+In your browser, click on the 'Favorite it!' button and check your terminal for the logged data.
 
 ## Writing the controller action
 
 Now that we have confirmed access to `req.params.listingId` and `req.params.userId`, let's complete the controller action.
 
-Our controller action will update a listing by adding a `userId` to the `favoritedByUsers` array. For this we'll utilize the [`findByIdAndUpdate()`](https://mongoosejs.com/docs/api/model.html#Model.findByIdAndUpdate()) method.
+Our controller action will update a listing by adding a `userId` to the `favoritedByUsers` array. For this we'll utilize the [`findByIdAndUpdate()`](<https://mongoosejs.com/docs/api/model.html#Model.findByIdAndUpdate()>) method.
 
 The `findByIdAndUpdate()` accepts two arguments:
 
 1. An `ObjectId` for locating the document.
 2. An object containing data to update the document with.
 
-The update object we use here will be different from what you've seen in the past, as we need to modify an array inside the listing document. For this we'll make use of MongoDB's *`$push`* operator.
+The update object we use here will be different from what you've seen in the past, as we need to modify an array inside the listing document. For this we'll make use of MongoDB's _`$push`_ operator.
 
-The [*`$push`*](https://www.mongodb.com/docs/manual/reference/operator/update/push/) operator is used to add a new value to an array. The operator requires that we specify the **target array** and the **value** to add.
+The [_`$push`_](https://www.mongodb.com/docs/manual/reference/operator/update/push/) operator is used to add a new value to an array. The operator requires that we specify the **target array** and the **value** to add.
 
 When used inside an update object, we would see something like the following syntax:
 
 ```js
-const updateObject = { $push: { targetArray: newValue } }
+const updateObject = { $push: { targetArray: newValue } };
 ```
 
 For our purposes, we'll be adding `req.params.userId` to `favoritedByUsers`.
@@ -103,7 +104,7 @@ router.post('/:listingId/favorited-by/:userId', async (req, res) => {
     res.redirect(`/listings/${req.params.listingId}`);
   } catch (error) {
     console.log(error);
-    res.redirect('/')
+    res.redirect('/');
   }
 });
 ```
@@ -114,7 +115,7 @@ At this point, you should be able to favorite a listing!
 
 Now that we can favorite a listing, let's touch up our **show page** with some conditional rendering.
 
-Once a user favorites a listing, they should no longer see the 'Favorite it!' button. We can determine if a user has favorited a listing by checking if their `ObjectId` is inside the `favoritedByUsers` array. 
+Once a user favorites a listing, they should no longer see the 'Favorite it!' button. We can determine if a user has favorited a listing by checking if their `ObjectId` is inside the `favoritedByUsers` array.
 
 This determination can actually be handled in the corresponding controller action by creating a boolean called `userHasFavorited`. We can then pass this boolean to the show view, and conditionally render the 'Favorite it!' button based on its value.
 
@@ -129,7 +130,6 @@ router.get('/:listingId', async (req, res) => {
       req.params.listingId
     ).populate('owner');
 
-
     const userHasFavorited = populatedListings.favoritedByUsers.some((user) =>
       user.equals(req.session.user._id)
     );
@@ -138,10 +138,9 @@ router.get('/:listingId', async (req, res) => {
       listing: populatedListings,
       userHasFavorited: userHasFavorited,
     });
-
   } catch (error) {
     console.log(error);
-    res.redirect('/')
+    res.redirect('/');
   }
 });
 ```
@@ -153,14 +152,14 @@ Next we'll update our view with an `if...else` block:
 ```html
 <!-- views/listings/show.ejs -->
 
-    <h2>Favorites</h2>
-    <p>Favorited by <%= listing.favoritedByUsers.length %> people.</p>
+<h2>Favorites</h2>
+<p>Favorited by <%= listing.favoritedByUsers.length %> people.</p>
 
-    <% if (userHasFavorited) { %>
-      <p>You've favorited this listing!</p>
-    <% } else { %>
-      <p>You haven't favorited this listing.</p>
-    <% } %>
+<% if (userHasFavorited) { %>
+<p>You've favorited this listing!</p>
+<% } else { %>
+<p>You haven't favorited this listing.</p>
+<% } %>
 ```
 
 > 🏆 Notice how concise our conditional rendering is here. This is a direct result of the additional work we did in our controller action. While it's possible to achieve this functionality entirely in the view, it is better practice to handle complex logic like this in controllers.
@@ -170,23 +169,23 @@ Finally, move the `<form>` and `<button>` into the `else` block:
 ```html
 <!-- views/listings/show.ejs -->
 
-    <h2>Favorites</h2>
+<h2>Favorites</h2>
 
-    <p>Favorited by <%= listing.favoritedByUsers.length %> people.</p>
+<p>Favorited by <%= listing.favoritedByUsers.length %> people.</p>
 
-    <% if (userHasFavorited) { %>
-      <p>You've favorited this listing!</p>
-    <% } else { %>
-      <p>You haven't favorited this listing.</p>
+<% if (userHasFavorited) { %>
+<p>You've favorited this listing!</p>
+<% } else { %>
+<p>You haven't favorited this listing.</p>
 
-      <form
-        action="/listings/<%= listing._id %>/favorited-by/<%= user._id %>"
-        method="POST"
-      >
-        <button type="submit">Favorite it!</button>
-      </form>
+<form
+  action="/listings/<%= listing._id %>/favorited-by/<%= user._id %>"
+  method="POST"
+>
+  <button type="submit">Favorite it!</button>
+</form>
 
-    <% } %>
+<% } %>
 ```
 
-In your browser, try favoriting a listing. Verify that the UI changes as expected! 
+In your browser, try favoriting a listing. Verify that the UI changes as expected!

@@ -8,7 +8,7 @@ Congratulations! You've just completed building an Express application where dat
 
 ## Project planning review
 
-Our real estate application allows users to create listings for the properties they own. Details they can track are:
+Our application allows users to create listings for the properties they own. Details they can track are:
 
 - Street address
 - City
@@ -19,19 +19,21 @@ Our real estate application allows users to create listings for the properties t
 
 Users can browse all listings, access listing details, create new listings, edit existing ones, and delete listings. Additionally, users can favorite or unfavorite a listing.
 
-We built out our user stories and ERD to help us plan out this application. We also built out our application in a way where we can easily add new features to it. 
+We built out our user stories and ERD to help us plan out this application. We also built out our application in a way where we can easily add new features to it.
 
 ### User stories
 
 User stories are a way to describe an application's functionality from a user's perspective. Remember, they are often written in the format of:
 
-> As a user, I want to do X.
+> As a user, I want to do X for Y reason
 
-User stories are often used as a checklist to work through as we build out an application. 
+User stories are often used as a checklist to work through as we build out an application.
 
 ### ERD
 
 Entity relationship diagrams (ERDs) are a way to visualize the structure of the data in an application. They are often used to plan out the structure of an application's database.
+
+<br>
 
 ![Entity relationship diagram](./assets/erd.png)
 
@@ -45,8 +47,8 @@ The process of referencing one-to-many relationships is:
 
 ```js
 const listingSchema = new Schema({
-    // other fields
-    owner: {}
+  // other fields
+  owner: {},
 });
 ```
 
@@ -54,11 +56,11 @@ const listingSchema = new Schema({
 
 ```js
 const listingSchema = new Schema({
-    // other fields
-    owner: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-    }
+  // other fields
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+  },
 });
 ```
 
@@ -78,8 +80,8 @@ A many-to-many relationships can be formed by:
 
 ```js
 const listingSchema = new mongoose.Schema({
-	// other fields
-  favoritedByUsers: [ ],
+  // other fields
+  favoritedByUsers: [],
 });
 ```
 
@@ -87,7 +89,7 @@ const listingSchema = new mongoose.Schema({
 
 ```js
 const listingSchema = new mongoose.Schema({
-	// other fields
+  // other fields
   favoritedByUsers: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -114,9 +116,9 @@ To do so, we applied the following strategies:
 1. Conditional rendering on the client-side:
 
 ```html
-<% if (listing.owner._id.equals(user._id)) { %>
-	...
-<% } 
+<% if (listing.owner._id.equals(user._id)) { %> 
+... 
+<% } %>
 ```
 
 2. Protected controller actions on the server:
@@ -129,4 +131,4 @@ if (listing.owner.equals(req.session.user._id)) {
 }
 ```
 
-When used in tandem, these strategies produce a robust and secure application. 
+When used in tandem, these strategies produce a robust and secure application.

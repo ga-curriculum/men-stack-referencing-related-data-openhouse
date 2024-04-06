@@ -14,7 +14,7 @@ We can determine that we need a `GET` request to `/listings`. This will be our i
 
 > 💡 The index action is one of two read actions in CRUD. It is used to display all of the resources of a given type.
 
-## You do: Log all listings
+## 🎓 You Do: Log all listings
 
 We have determined that we need a route for `GET` requests to `/listings`. Let's build it! Inside of `controllers/listings.js` do the following steps:
 

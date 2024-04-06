@@ -1,8 +1,10 @@
 # ![MEN Stack Referencing Related Data - OpenHouse - Level Up - Formatting Currency](./assets/hero.png)
 
+**Learning objective:** By the end of this lesson, students will be able to apply the `Intl.NumberFormat()` method in JavaScript for accurate currency formatting
+
 ## Formatting currency in JavaScript
 
-Formatting currency in JavaScript is not too difficult. However, there are some things that we need to consider when working with currency in JavaScript. Let's take a look at some of these considerations: 
+Formatting currency in JavaScript is not too difficult. However, there are some things that we need to consider when working with currency in JavaScript. Let's take a look at some of these considerations:
 
 - Use a library.
 - Location considerations.
@@ -19,7 +21,7 @@ Let's see how we can use this library to format currency in JavaScript:
 const formatter = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'USD',
-  minimumFractionDigits: 2
+  minimumFractionDigits: 2,
 });
 
 formatter.format(2500); /* $2,500.00 */
@@ -35,7 +37,7 @@ We can use the `Intl.NumberFormat()` method to format our currency based on the 
 const formatter = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'CAD',
-  minimumFractionDigits: 2
+  minimumFractionDigits: 2,
 });
 
 formatter.format(500); /* CA$500.00 */
@@ -44,8 +46,8 @@ formatter.format(500); /* CA$500.00 */
 We can see a full list of values for the `currency` values by running this code:
 
 ```js
-Intl.supportedValuesOf("currency").forEach((currency) => {
-    console.log(currency)
+Intl.supportedValuesOf('currency').forEach((currency) => {
+  console.log(currency);
 });
 ```
 
@@ -99,6 +101,6 @@ When working with currency, we need to consider where we are formatting our curr
   - Slower response times.
   - More data transfer.
 
-Client-side formatting is great because it is faster and uses less data transfer. However, it is not as secure as server-side formatting. This is because the client can manipulate the data before it is sent to the server. This can cause some security concerns. 
+Client-side formatting is great because it is faster and uses less data transfer. However, it is not as secure as server-side formatting. This is because the client can manipulate the data before it is sent to the server. This can cause some security concerns.
 
 Server-side formatting is great because it is more secure and consistent. However, it is slower and uses more data transfer.

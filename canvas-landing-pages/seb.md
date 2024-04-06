@@ -2,7 +2,9 @@
 
 ## About
 
-In this module, you'll learn how to form relationships in MongoDB through referencing.
+This module is all about building a robust MEN (MongoDB, Express.js, Node.js) stack application. We'll be creating "OpenHouse," a real estate app that allows users to keep track of and favorite property listings. Throughout this code-along, you’ll learn important full-stack development skills such as working with authentication and how to reference related data within user models using Mongoose. Additionally, this module guides you through styling your application, helping you create a polished, portfolio-worthy project. Designed for intermediate learners with a background in full-stack JavaScript development, "OpenHouse" offers practical experience in handling relational data in full stack web applications.
+
+![Open House Landing Page](../assets/landing.png)
 
 ## Content
 
@@ -22,18 +24,18 @@ In this module, you'll learn how to form relationships in MongoDB through refere
 | [Build Delete Functionality](../build-delete-functionality/README.md)                                                     |     --     |  --   | Securely deleting a resource with protected controller actions.           |
 | [Build the Edit Page](../build-the-edit-page/README.md)                                                                   |     --     |  --   | Building an edit view.                                                    |
 | [Build Update Functionality](../build-update-functionality/README.md)                                                     |     --     |  --   | Securely updating a resource with protected controller actions.           |
-| [Add Favorites to the Listing Schema](../add-favorites-to-the-listing-schema/README.md)                                   |     --     |  --   | Understanding many-to-many relationships in MongoDB.                      |
+| [Add Favorites to the Listing Schema](../add-favorites-to-the-listing-schema/README.md)                                   |     --     |  --   | Implementing many-to-many relationships in MongoDB.                       |
 | [Add Favorites Functionality to the Show Page](../add-favorites-functionality-to-the-show-page/README.md)                 |     --     |  --   | Implementing the functionality to favorite a resource.                    |
 | [Add Unfavorite Functionality to the Show Page](../add-unfavorite-functionality-to-the-show-page/README.md)               |     --     |  --   | Implementing the functionality to unfavorite a resource.                  |
-| [Wrap Up](../wrap-up/README.md)                                                                                           |     --     |  --   | --                                                                        |
+| [Wrap Up](../wrap-up/README.md)                                                                                           |     --     |  --   | Review of key concepts                                                    |
 
 ## Level Up content
 
-| Lesson                                                                                  | Video Time | Video | Skills                             |
-| --------------------------------------------------------------------------------------- | :--------: | :---: | ---------------------------------- |
-| [Formatting Currency](../formatting-currency/README.md)                                 |     --     |  --   | Formatting currency in JavaScript. |
-| [Viewing a User's Favorite Listings](../viewing-a-users-favorite-listings.md/README.md) |     --     |  --   | Displaying related user data.      |
-| [Style the Application](../style-the-application/README.md)                             |     --     |  --   | Displaying related user data.      |
+| Lesson                                                                                  | Video Time | Video | Skills                              |
+| --------------------------------------------------------------------------------------- | :--------: | :---: | ----------------------------------- |
+| [Formatting Currency](../formatting-currency/README.md)                                 |     --     |  --   | Formatting currency in JavaScript.  |
+| [Viewing a User's Favorite Listings](../viewing-a-users-favorite-listings.md/README.md) |     --     |  --   | Displaying related user data.       |
+| [Style the Application](../style-the-application/README.md)                             |     --     |  --   | Adding CSS to style the application |
 
 ## References
 

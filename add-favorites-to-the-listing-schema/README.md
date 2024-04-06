@@ -1,18 +1,18 @@
 # ![MEN Stack Referencing Related Data - OpenHouse - Add Favorites to the Listing Schema](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will understand many-to-many relationships in MongoDB.
+**Learning objective:** By the end of this lesson, students will understand how to add a many-to-many relationship in MongoDB.
 
 ## User story
 
 Take a look at the two user stories below:
 
-- AAU viewing the details of a listing, I should be able to see how many people have favorited that listing, and be able to favorite it myself.
+> As a user, I want to see the number of favorites a listing has received, to gauge its popularity and potential demand.
+> As a user, I want to favorite a listing, so I can easily find and review it later.
+> As a user, I want to remove listings from my favorites, to keep my favorites list relevant to my current interests.
 
-- AAU viewing the details of a listing that I have favorited, I should be able to unfavorite the listing.
+To implement this functionality, we'll first need to add a new property to our `listingSchema` called `favoritedByUsers`.
 
-To implement this functionality, we'll first need to add a new property to our `listingSchema` called `favoritedByUsers`. 
-
-The `favoritedByUsers` property will facilitate a *many-to-many relationship* between listings and users.
+The `favoritedByUsers` property will facilitate a _many-to-many relationship_ between listings and users.
 
 ## What is a many-to-many relationship?
 
@@ -31,6 +31,7 @@ Update your `listingSchema` with the following:
 
 const listingSchema = new mongoose.Schema({
   // ... other properties above
+
   favoritedByUsers: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -40,4 +41,4 @@ const listingSchema = new mongoose.Schema({
 });
 ```
 
-There are two benefits to this setup. First, if we ever want to see how many people have favorited a listing, we can access the `length` of the `favoritedByUsers` array. Second, by checking the array for a specific `ObjectId`, we'll be able to determine whether a specific user has favorited the listing or not. 
+There are two benefits to this setup. First, if we ever want to see how many people have favorited a listing, we can access the `length` of the `favoritedByUsers` array. Second, by checking the array for a specific `ObjectId`, we'll be able to determine whether a specific user has favorited the listing or not.

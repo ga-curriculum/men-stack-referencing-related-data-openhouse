@@ -6,15 +6,15 @@
 
 Take a look at the next user story - it mirrors the logic used to favorite a listing quite closely:
 
-- AAU viewing the details of a listing that I have favorited, I should be able to unfavorite the listing.
+> As a user, I want to remove listings from my favorites, to keep my favorites list relevant to my current interests.
 
 ## Conceptualizing the route
 
-Our route should listen for `DELETE` requests on `/listings/:listingId/favorited-by/:userId`. 
+Our route should listen for `DELETE` requests on `/listings/:listingId/favorited-by/:userId`.
 
-| Action | What It Does | HTTP Verb | Route |
-| ------ | ------------ | --------- | ----- |
-| Unfavorite | Unfavorites a listing | `DELETE` | `/listings/:listingId/favorited-by/:userId` |
+| Action     | What It Does          | HTTP Verb | Route                                       |
+| ---------- | --------------------- | --------- | ------------------------------------------- |
+| Unfavorite | Unfavorites a listing | `DELETE`  | `/listings/:listingId/favorited-by/:userId` |
 
 > 💡 We'll include the `userId` in our route to stay consistent with our functionality for adding favorites.
 
@@ -27,21 +27,21 @@ Add the following `<form>` to the `if` block:
 ```html
 <!-- views/listings/show.ejs -->
 
-    <h2>Favorites</h2>
-    <p>Favorited by <%= listing.favoritedByUsers.length %> people.</p>
-    <% if (userHasFavorited) { %>
-      <p>You've favorited this listing!</p>
+<h2>Favorites</h2>
+<p>Favorited by <%= listing.favoritedByUsers.length %> people.</p>
+<% if (userHasFavorited) { %>
+  <p>You've favorited this listing!</p>
 
-      <form
-        action="/listings/<%= listing._id %>/favorited-by/<%= user._id %>?_method=DELETE"
-        method="POST"
-      >
-        <button type="submit">Unfavorite it</button>
-      </form>
+  <form
+    action="/listings/<%= listing._id %>/favorited-by/<%= user._id %>?_method=DELETE"
+    method="POST"
+  >
+    <button type="submit">Unfavorite it</button>
+  </form>
 
-    <% } else { %>
-      ...
-    <% } %>
+<% } else { %>
+  ...
+<% } %>
 ```
 
 ## Scaffolding the function
@@ -55,28 +55,28 @@ Add the following to `controllers/listings.js`:
 
 router.delete('/:listingId/favorited-by/:userId', async (req, res) => {
   try {
-    console.log('userId: ', req.params.userId)
-    console.log('listingId: ', req.params.listingId)
-    res.send(`Request to unfavorite ${req.params.listingId}`)
+    console.log('userId: ', req.params.userId);
+    console.log('listingId: ', req.params.listingId);
+    res.send(`Request to unfavorite ${req.params.listingId}`);
   } catch (error) {
     console.log(error);
-    res.redirect('/')
+    res.redirect('/');
   }
 });
 ```
 
-In your browser, click on the 'Unfavorite it' button and check your VSCode terminal for the logged data.
+In your browser, click on the 'Unfavorite it' button and check your terminal for the logged data.
 
 ## Writing the controller action
 
 Now that we have confirmed access to `req.params.listingId` and `req.params.userId`, let's complete the controller action.
 
-Our goal here is to update a listing by **removing** a `userId` from the `favoritedByUsers` array. Once again, we'll utilize the `findByIdAndUpdate()` method, but this time using the MongoDB *`$pull`* operator. 
+Our goal here is to update a listing by **removing** a `userId` from the `favoritedByUsers` array. Once again, we'll utilize the `findByIdAndUpdate()` method, but this time using the MongoDB _`$pull`_ operator.
 
-The [*`$pull`*](https://www.mongodb.com/docs/manual/reference/operator/update/pull/) behaves much like the `$push` operator, except that it **removes** a target value from the array:
+The [_`$pull`_](https://www.mongodb.com/docs/manual/reference/operator/update/pull/) behaves much like the `$push` operator, except that it **removes** a target value from the array:
 
 ```js
-const updateObject = { $pull: { targetArray: valueForRemoval } }
+const updateObject = { $pull: { targetArray: valueForRemoval } };
 ```
 
 In this case, we'll want to remove `req.params.userId` from `favoritedByUsers`.
@@ -94,7 +94,7 @@ router.delete('/:listingId/favorited-by/:userId', async (req, res) => {
     res.redirect(`/listings/${req.params.listingId}`);
   } catch (error) {
     console.log(error);
-    res.redirect('/')
+    res.redirect('/');
   }
 });
 ```

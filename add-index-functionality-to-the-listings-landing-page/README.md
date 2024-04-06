@@ -6,7 +6,7 @@
 
 Now that we have data in our database, let's focus on the next user story:
 
-- I want to view all the listings that have been created by every user on a single page.
+> As a user, I want to view all the listings created by every user on a single page, to explore available properties.
 
 At the moment, we have a route and controller defined, but we are not yet rendering the data to the view. When we display our listings, we'll want to include the `city` that each listing is in, as well as the `username` of the listing's `owner`. To accomplish this, we'll need to make use of the Mongoose `populate()` method.
 
@@ -22,13 +22,13 @@ Recall the `owner` property on our `listingSchema`:
   },
 ```
 
-The `owner` property stores the `ObjectId` of a user document. This pattern is known as *referencing*, where a document in one collection links to a document in another collection by storing a record of its `ObjectId`.
+The `owner` property stores the `ObjectId` of a user document. This pattern is known as _referencing_, where a document in one collection links to a document in another collection by storing a record of its `ObjectId`.
 
 Unlike embedding, where a parent document includes related sub-documents, with referencing we only store the `ObjectId` of the related document, not the actual data.
 
-While we could execute a separate database operation to retrieve the relevant user document, Mongoose provides a method for joining related data with [`populate()`](https://mongoosejs.com/docs/populate.html#population). 
+While we could execute a separate database operation to retrieve the relevant user document, Mongoose provides a method for joining related data with [`populate()`](https://mongoosejs.com/docs/populate.html#population).
 
-The `populate()` method replaces a specified path in a document with documents from other collections. It accepts a `string` specifying the path in the document that needs to be populated with data. 
+The `populate()` method replaces a specified path in a document with documents from other collections. It accepts a `string` specifying the path in the document that needs to be populated with data.
 
 Take a look at the example below:
 
@@ -52,11 +52,11 @@ Update your controller function as shown below:
 router.get('/', async (req, res) => {
   try {
     const populatedListings = await Listing.find({}).populate('owner');
-    console.log('Populated Listings:', populatedListings)
+    console.log('Populated Listings:', populatedListings);
     res.render('listings/index.ejs');
   } catch (error) {
     console.log(error);
-    res.redirect('/')
+    res.redirect('/');
   }
 });
 ```
@@ -103,10 +103,9 @@ router.get('/', async (req, res) => {
     res.render('listings/index.ejs', {
       listings: populatedListings,
     });
-    
   } catch (error) {
     console.log(error);
-    res.redirect('/')
+    res.redirect('/');
   }
 });
 ```
@@ -116,11 +115,11 @@ And finally, add the following to the `<body>` of `views/listings/index.ejs`:
 ```html
 <!-- views/listings/index.ejs -->
 
-  <ul>
-    <% listings.forEach((listing) => { %>
-      <li>
-        A listing in <%= listing.city %> owned by <%= listing.owner.username %>.
-      </li>
-    <% }) %>
-  </ul>
+<ul>
+  <% listings.forEach((listing) => { %>
+  <li>
+    A listing in <%= listing.city %> owned by <%= listing.owner.username %>.
+  </li>
+  <% }) %>
+</ul>
 ```

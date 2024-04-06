@@ -1,6 +1,6 @@
 # ![MEN Stack Referencing Related Data - OpenHouse - Build the New Page](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to construct a New page in a MEN stack application.
+**Learning objective:** By the end of this lesson, students will be able to construct the `new` page containing a form for new listings in a MEN stack application.
 
 ## `GET` a new listing form
 
@@ -11,10 +11,10 @@ The action for creating a new listing breaks down into two parts:
 
 These two parts require separate routes. Let's start to think through the first action. We want to render a form for the user to enter their listing details. From this, we can determine that we need a `GET` route, but we have already mapped a `GET` route to `/listings` to view all listings. Let's add `/new` to the end of the path to create a new unique route for this action.
 
-| Action | What It Does | HTTP Verb | Route |
-| ------ | ------------ | --------- | ----- |
-| Index | Displays all listings | `GET` | `/listings` |
-| New | Displays a form to create a new listing | `GET` | `/listings/new` |
+| Action | What It Does                            | HTTP Verb | Route           |
+| ------ | --------------------------------------- | --------- | --------------- |
+| Index  | Displays all listings                   | `GET`     | `/listings`     |
+| New    | Displays a form to create a new listing | `GET`     | `/listings/new` |
 
 > 💡 We carried over the index route from the previous section to build onto this routes table.
 
@@ -26,11 +26,11 @@ Now we know what our route should be, let's include an anchor element in our `li
 <!--Meta Data located above-->
 <h1>Here's all the Listings</h1>
 <!--Add in new anchor element-->
-<a href="/listings/new">Add a New Listing</a> 
+<a href="/listings/new">Add a New Listing</a>
 <!--Closing body and html element under-->
 ```
 
-## You Do: Render a new listing form
+## 🎓 You Do: Render a new `listing` form
 
 We have determined that we need a route for `GET` requests to `/listings/new`. Let's build it! Inside of `controllers/listings.js` do the following steps:
 
@@ -87,18 +87,18 @@ We are going to need an input for each of these fields. Let's add these to our f
 <!-- views/listings/new.ejs -->
 
 <form>
-	<label for="street-address">Street Address:</label>
-	<input type="text" name="streetAddress" id="street-address" />
-	<label for="city">City:</label>
-	<input type="text" name="city" id="city" />
-	<label for="price">Price:</label>
-	<input type="number" name="price" id="price" min="0"/>
-	<label for="size">Size:</label>
-	<input type="number" name="size" id="size" min="0"/>
-	<button type="submit">Add Listing</button>
+  <label for="street-address">Street Address:</label>
+  <input type="text" name="streetAddress" id="street-address" />
+  <label for="city">City:</label>
+  <input type="text" name="city" id="city" />
+  <label for="price">Price:</label>
+  <input type="number" name="price" id="price" min="0" />
+  <label for="size">Size:</label>
+  <input type="number" name="size" id="size" min="0" />
+  <button type="submit">Add Listing</button>
 </form>
 ```
 
 > The `name` attribute on the input elements will be used to access the data from the form in our controller action. We are also using some HTML form validation to ensure the user enters a number greater than 0 for the price and size fields.
 
-We have completed the first action of creating a new listing. We have rendered a form for the user to enter their listing details. Next, we need to handle the data sent from the form! 
+We have completed the first action of creating a new listing. We have rendered a form for the user to enter their listing details. Next, we need to handle the data sent from the form!

@@ -47,11 +47,11 @@ As a user:
 > As a user, I want to view all the listings created by every user on a single page, to explore available properties.
 > As a user interested in a property, I want to view all details of a listing, including information about its owner, by following a link from the main listing page.
 > As a user who owns a listing, I want the option to delete a listing I created, in case the property is no longer available.
-> As a user who owns a listing, I want to edit details of my listings, to ensure the information stays up>to>date.
-> As a user, I want to mark listings as favorites, so I can easily find and review them later.
-> As a user, I want to remove listings from my favorites, to keep my favorites list relevant to my current interests.
+> As a user who owns a listing, I want to edit details of my listings, to ensure the information stays up-to-date.
 > As a user, I want to see the number of favorites a listing has received, to gauge its popularity and potential demand.
-> As a user, I want to view all listings I've favorited on a single page, to easily access and review my top choices.
+> As a user, I want to favorite a listing, so I can easily find and review it later.
+> As a user, I want to remove listings from my favorites, to keep my favorites list relevant to my current interests.
+> As a user, I want a profile page to view both the listings I own and the listings I've favorited, so that I can easily review everything in one place.
 
 Developing these user stories helps us understand the required functionalities for our application. Additionally, they serve as a practical checklist to guide our development process.
 
