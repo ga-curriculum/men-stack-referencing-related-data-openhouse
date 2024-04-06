@@ -160,7 +160,8 @@ Adding the empty `<div>` with the class of `landing-image` will give us a place 
 .logo-container {
   display: flex;
   flex-direction: row;
-  margin: 20px;
+  width: 50%;
+  margin: 20px 35px;
 }
 
 .logo-container > h1 {
@@ -183,11 +184,12 @@ Adding the empty `<div>` with the class of `landing-image` will give us a place 
   height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
-  margin: 0;
+  margin: 0 0 0 -8px;
 }
 
-.auth-links {
-  margin: 25px 15px;
+.auth-links,
+.nav-links {
+  margin: 25px 20px;
 }
 
 .auth-links > a {
@@ -217,10 +219,15 @@ Adding the empty `<div>` with the class of `landing-image` will give us a place 
 }
 
 .nav-links > a {
-  color: black;
-  font-weight: bold;
-  margin: 0 15px;
   text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+  color: black;
+}
+
+.nav-links > a:hover {
+  color: #6f8dae;
+  text-decoration: underline;
 }
 ```
 
@@ -257,110 +264,6 @@ Adding the empty `<div>` with the class of `landing-image` will give us a place 
 ```
 
 1. Next, add the following css to `style.css`:
-
-```css
-.signup-page {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 90%;
-}
-
-.signup-form-container-1 {
-  width: 60%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.signup-form-container-2 {
-  padding: 10px 30px 20px;
-  border: 1px solid gray;
-}
-
-.signup-form-container-2 > h1 {
-  font-weight: normal;
-  text-transform: uppercase;
-  font-size: 1.5em;
-}
-
-.signup-form-container-2 > form {
-  display: flex;
-  flex-direction: column;
-}
-
-label {
-  font-size: 0.9em;
-}
-
-input {
-  border: 1px solid rgb(190, 190, 190);
-  border-radius: 10px;
-  margin: 10px 0;
-  width: 15em;
-}
-
-button {
-  border: none;
-  border-radius: 8px;
-  color: white;
-  font-weight: bold;
-  background-color: #274c9c;
-  padding: 4px 15px;
-  margin: 10px 0;
-}
-
-.signup-img {
-  background-image: url('https://images.unsplash.com/photo-1600607687486-6cced9976e79');
-  min-height: 110vh;
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 40%;
-  position: relative;
-  z-index: -10;
-}
-```
-
-You'll notice that we had to do a few new things to style our `signup-img` the way we wanted to. Since our design features an image that spans the height of the browser window _and_ lays beneath the navbar, we took advantage of the [`position` property](https://developer.mozilla.org/en-US/docs/Web/CSS/position).
-
-While this property is useful for achieving the look we wanted, it is **rarely necessary** to use, and can make your css overly complicated. This is a css rule that you should only use with **extreme caution** in your own projects, as it can cause more problems than it solves.
-
-Using `position: relative` here allowed the image to span the height of the browser window and have overlap with other elements. Notice that we also gave it a [`z-index`](https://developer.mozilla.org/en-US/docs/Web/CSS/z-index) of -10. A lower `z-index` pushes stacked items to the back, while a higher `z-index` pulls them to the front. In this case, we wanted our image to fall behind the navbar, otherwise it would cover up the nav links or make them unclickable.
-
-Without `position: relative` and `z-index: -10`, we would have a sign-up page with inaccessible nav links like this:
-
-![Signup page without position relative](./assets/originals/no-positon.png)
-
-Again, the `position` property is useful for very specific design features, but most of the time you can achieve your design with other properties like `flexbox`.
-
-## Styling the sign in form
-
-1. Now we're going to style our sign-in page. We'll mimic what we did on the sign-up page, but change the `<div>` classnames. Replace the contents of `/auth/sign-in.ejs` with this:
-
-```html
-<body>
-  <%- include('../partials/_navbar.ejs') %>
-  <div class="signin-page">
-    <div class="signin-img"></div>
-    <div class="signin-form-container-1">
-      <div class="signin-form-container-2">
-        <h1>Sign in</h1>
-        <form action="/auth/sign-in" method="POST">
-          <label for="username">Username:</label>
-          <input type="text" name="username" id="username" required />
-          <label for="password">Password:</label>
-          <input type="password" name="password" id="password" required />
-          <button type="submit">Sign in</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</body>
-```
-
-2. No need to write new css for most of the styling on this page. We can just add the class names to our existing rules for sign-up. We do, however, need a new rule for our image. Adjust your css rules to match the below:
 
 ```css
 .signup-page,
@@ -409,6 +312,7 @@ input {
   border-radius: 10px;
   margin: 10px 0;
   width: 15em;
+  padding: 5px;
 }
 
 button {
@@ -417,14 +321,68 @@ button {
   color: white;
   font-weight: bold;
   background-color: #274c9c;
-  padding: 4px 15px;
+  padding: 7px 15px;
   margin: 10px 0;
+}
+
+button:hover {
+  background-color: black;
 }
 
 .signup-img {
   background-image: url('https://images.unsplash.com/photo-1600607687486-6cced9976e79');
   min-height: 110vh;
-  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 40%;
+  position: relative;
+  z-index: -10;
+}
+```
+
+You'll notice that we had to do a few new things to style our `signup-img` the way we wanted to. Since our design features an image that spans the height of the browser window _and_ lays beneath the navbar, we took advantage of the [`position` property](https://developer.mozilla.org/en-US/docs/Web/CSS/position).
+
+While this property is useful for achieving the look we wanted, it is **rarely necessary** to use, and can make your css overly complicated. This is a css rule that you should only use with **caution** in your own projects, as it can cause more problems than it solves.
+
+Using `position: relative` here allowed the image to span the height of the browser window and have overlap with other elements. Notice that we also gave it a [`z-index`](https://developer.mozilla.org/en-US/docs/Web/CSS/z-index) of -10. A lower `z-index` pushes stacked items to the back, while a higher `z-index` pulls them to the front. In this case, we wanted our image to fall behind the navbar, otherwise it would cover up the nav links or make them unclickable.
+
+Without `position: relative` and `z-index: -10`, we would have a sign-up page with inaccessible nav links like this:
+
+![Signup page without position relative](./assets/originals/no-positon.png)
+
+Again, the `position` property is useful for very specific design features, but most of the time you can achieve your design with other properties like `flexbox`.
+
+## Styling the sign in form
+
+1. Now we're going to style our sign-in page. We'll mimic what we did on the sign-up page, but change the `<div>` classnames. Replace the contents of `/auth/sign-in.ejs` with this:
+
+```html
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+  <div class="signin-page">
+    <div class="signin-img"></div>
+    <div class="signin-form-container-1">
+      <div class="signin-form-container-2">
+        <h1>Sign in</h1>
+        <form action="/auth/sign-in" method="POST">
+          <label for="username">Username:</label>
+          <input type="text" name="username" id="username" required />
+          <label for="password">Password:</label>
+          <input type="password" name="password" id="password" required />
+          <button type="submit">Sign in</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+```
+
+2. No need to write new css for most of the styling on this page. We can just add the class names to our existing rules for sign-up. We do, however, need a new rule for our image. Adjust your css rules to match the below:
+
+```css
+.signup-img {
+  background-image: url('https://images.unsplash.com/photo-1600607687486-6cced9976e79');
+  min-height: 110vh;
   background-size: cover;
   background-repeat: no-repeat;
   width: 40%;
@@ -513,7 +471,6 @@ This removed the `<ul>` and `<li>` elements (which are unnecessary for our purpo
   text-decoration: none;
   margin: 5px 30px 50px;
   color: black;
-  background-color: #f5f3eb;
 }
 
 .card-container > a:hover {
@@ -809,6 +766,99 @@ This added a lot of `<divs>` and assigned class names for easier styling.
 </body>
 ```
 
-Since we reused the existing `<divs>` from the `listings/new.ejs`, we don't have to add any styling!
+Since we reused the existing `<divs>` from the `listings/new.ejs`, we don't have to add any additional styling here!
+
+## Style the Profile Page
+
+1. Change the contents of `users/show.ejs` to:
+
+```html
+<body>
+  <%- include('../partials/_navbar.ejs') %>
+  <div class="profile-container">
+    <h1>Profile</h1>
+    <p>
+      You have 
+      <%= myListings.length %> 
+      <%= myListings.length===1 ? 'Listing' : 'Listings' %>
+    </p>
+    <div class="profile-card-container">
+      <% myListings.forEach((listing)=> { %>
+      <a href="/listings/<%= listing._id %>">
+        <h4><%= listing.city %> Listing</h4>
+        <p>Owned by <%= listing.owner.username %></p>
+      </a>
+      <% }) %>
+    </div>
+
+    <div class="profile-favorites-container">
+      <p>
+        You Have <%= myFavoriteListings.length %> 
+        <%= myFavoriteListings.length === 1 ? 'Favorite' : 'Favorites' %>
+      </p>
+      <div class="profile-card-container">
+        <% myFavoriteListings.forEach((listing)=> { %>
+        <a href="/listings/<%= listing._id %>">
+          <h4><%= listing.city %> Listing</h4>
+          <p>Owned by <%= listing.owner.username %></p>
+        </a>
+        <% }) %>
+      </div>
+    </div>
+  </div>
+</body>
+```
+
+2. Add the following rules to `style.css`:
+
+```css
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px;
+  width: 90%;
+}
+
+.profile-favorites-container {
+  padding: 10px 30px;
+  border: 1px solid gray;
+  width: 70%;
+  align-self: center;
+}
+
+.profile-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 70px;
+}
+
+.profile-card-container > a {
+  padding: 8px 15px;
+  width: 7em;
+  height: 6em;
+  border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  margin: 5px 10px 20px;
+  color: black;
+}
+
+.profile-card-container > a:hover {
+  background-color: black;
+  color: white;
+}
+
+.profile-card-container > a > h4 {
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.profile-card-container > a > p {
+  font-size: 0.8em;
+}
+```
 
 You now have a fully styled app -- well done!
