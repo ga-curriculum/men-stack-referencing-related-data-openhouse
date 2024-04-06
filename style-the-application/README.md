@@ -160,8 +160,7 @@ Adding the empty `<div>` with the class of `landing-image` will give us a place 
 .logo-container {
   display: flex;
   flex-direction: row;
-  width: 50%;
-  margin: 20px 35px;
+  margin: 20px;
 }
 
 .logo-container > h1 {
@@ -215,6 +214,13 @@ Adding the empty `<div>` with the class of `landing-image` will give us a place 
 .auth-links > a:nth-child(2):hover {
   background-color: black;
   color: white;
+}
+
+.nav-links > a {
+  color: black;
+  font-weight: bold;
+  margin: 0 15px;
+  text-decoration: none;
 }
 ```
 
