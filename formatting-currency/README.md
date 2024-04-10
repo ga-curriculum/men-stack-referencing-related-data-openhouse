@@ -1,6 +1,6 @@
 # ![MEN Stack Referencing Related Data - OpenHouse - Level Up - Formatting Currency](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to apply the `Intl.NumberFormat()` method in JavaScript for accurate currency formatting
+**Learning objective:** By the end of this lesson, students will be able to apply the `Intl.NumberFormat()` method in JavaScript for accurate currency formatting.
 
 ## Formatting currency in JavaScript
 
