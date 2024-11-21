@@ -115,7 +115,7 @@ Add the following to the view:
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= listing.name %></title>
+    <title><%= listing.owner.username %>'s listing</title>
   </head>
   <body>
     <%- include('../partials/_navbar.ejs') %>
