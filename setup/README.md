@@ -1,4 +1,7 @@
-# ![MEN Stack Referencing Related Data - Open-House - Setup](./assets/hero.png)
+<h1>
+  <span class="headline">Openhouse</span>
+  <span class="subhead">Setup</span>
+</h1>
 
 ## Setup
 

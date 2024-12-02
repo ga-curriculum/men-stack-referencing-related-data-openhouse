@@ -1,4 +1,7 @@
-# ![MEN Stack Referencing Related Data - OpenHouse - Build the Edit Page](./assets/hero.png)
+<h1>
+  <span class="headline">Openhouse</span>
+  <span class="subhead">Build the Edit Page</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will be able to implement edit functionality in a MEN stack application.
 

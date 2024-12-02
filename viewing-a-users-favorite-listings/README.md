@@ -1,4 +1,7 @@
-# ![MEN Stack Referencing Related Data - OpenHouse - Level Up - Viewing a User's Favorite Listings](./assets/hero.png)
+<h1>
+  <span class="headline">Openhouse</span>
+  <span class="subhead">Viewing a Users Favorite Listings</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will be able to create a profile page for displaying data related with a user.
 

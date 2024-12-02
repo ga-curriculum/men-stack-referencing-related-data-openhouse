@@ -1,4 +1,7 @@
-# ![MEN Stack Referencing Related Data - OpenHouse - Add Favorites to the Listing Schema](./assets/hero.png)
+<h1>
+  <span class="headline">Openhouse</span>
+  <span class="subhead">Add Favorites to the Listing Schema</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will understand how to add a many-to-many relationship in MongoDB.
 

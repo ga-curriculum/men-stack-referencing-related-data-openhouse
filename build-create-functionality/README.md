@@ -1,4 +1,7 @@
-# ![MEN Stack Referencing Related Data - OpenHouse - Build Create Functionality](./assets/hero.png)
+<h1>
+  <span class="headline">Openhouse</span>
+  <span class="subhead">Build Create Functionality</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will be able to build `create` functionality for a resource in a MEN stack application.
 

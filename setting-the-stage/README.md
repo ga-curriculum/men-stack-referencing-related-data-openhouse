@@ -1,4 +1,7 @@
-# ![MEN Stack Referencing Related Data - OpenHouse - Setting the Stage](./assets/hero.png)
+<h1>
+  <span class="headline">Openhouse</span>
+  <span class="subhead">Setting the Stage</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will get experience with creating User Stories and ERDs for a MEN stack application.
 

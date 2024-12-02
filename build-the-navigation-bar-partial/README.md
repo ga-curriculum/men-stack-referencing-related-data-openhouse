@@ -1,4 +1,7 @@
-# ![MEN Stack Referencing Related Data - OpenHouse - Build the Navigation Bar Partial](./assets/hero.png)
+<h1>
+  <span class="headline">Openhouse</span>
+  <span class="subhead">Build the Navigation Bar Partial</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will be able to implement a partial in a MEN stack application.
 

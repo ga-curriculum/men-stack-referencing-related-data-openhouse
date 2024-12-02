@@ -1,4 +1,7 @@
-# ![MEN Stack Referencing Related Data - OpenHouse - Build Update Functionality](./assets/hero.png)
+<h1>
+  <span class="headline">Openhouse</span>
+  <span class="subhead">Build Update Functionality</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will be able to create a controller function to update a resource in a MEN stack application.
 

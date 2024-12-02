@@ -1,4 +1,7 @@
-# ![MEN Stack Referencing Related Data - OpenHouse - Build the New Page](./assets/hero.png)
+<h1>
+  <span class="headline">Openhouse</span>
+  <span class="subhead">Build the New Page</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will be able to construct the `new` page containing a form for new listings in a MEN stack application.
 
