@@ -1,4 +1,7 @@
-# ![MEN Stack Referencing Related Data - OpenHouse - Wrap Up](./assets/hero.png)
+<h1>
+  <span class="headline">Openhouse</span>
+  <span class="subhead">Wrap Up</span>
+</h1>
 
 **Learning Objective:** By the end of this lesson, students will understand the planning and functionality essential for building this application.
 

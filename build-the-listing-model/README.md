@@ -1,4 +1,7 @@
-# ![MEN Stack Referencing Related Data - OpenHouse - Build the Listing Model](./assets/hero.png)
+<h1>
+  <span class="headline">Openhouse</span>
+  <span class="subhead">Build the Listing Model</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will be able to create a schema for a resource and export it as a model.
 

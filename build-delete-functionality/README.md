@@ -1,4 +1,7 @@
-# ![MEN Stack Referencing Related Data - OpenHouse - Build Delete Functionality](./assets/hero.png)
+<h1>
+  <span class="headline">Openhouse</span>
+  <span class="subhead">Build Delete Functionality</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will be able to implement `delete` functionality in a MEN stack application.
 

@@ -1,4 +1,7 @@
-# ![MEN Stack Referencing Related Data - Open-House - Setup](./assets/hero.png)
+<h1>
+  <span class="headline">Openhouse</span>
+  <span class="subhead">Setup</span>
+</h1>
 
 ## Setup
 
@@ -15,14 +18,10 @@ This lecture uses the [`MEN Stack Auth Template`](https://git.generalassemb.ly/m
 Navigate to the [MEN Stack Auth Template](https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-session-auth-template) and clone the repository to your machine:
 
 ```bash
-git clone git@git.generalassemb.ly:modular-curriculum-all-courses/men-stack-session-auth-template.git
+git clone https://git.generalassemb.ly/modular-curriculum-all-courses/men-stack-session-auth-template.git open-house
 ```
 
-Once we have the repository on our machines, we can change the name of the directory to better reflect a hip real estate app for tracking your favorite listings, OpenHouse!
-
-```bash
-mv men-stack-session-auth-template open-house
-```
+Note by adding the `open-house` argument we're cloning the specified repo into a directory called `open-house` on our machines.
 
 Next, `cd` into your renamed directory:
 

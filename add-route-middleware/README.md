@@ -1,4 +1,7 @@
-# ![MEN Stack Referencing Related Data - OpenHouse - Add Route Middleware](./assets/hero.png)
+<h1>
+  <span class="headline">Openhouse</span>
+  <span class="subhead">Add Route Middleware</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will be able to create middleware to test authentication and pass user data to rendered views.
 

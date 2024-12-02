@@ -1,4 +1,7 @@
-# ![MEN Stack Referencing Related Data - Level Up - Style the Application](./assets/hero.png)
+<h1>
+  <span class="headline">Openhouse</span>
+  <span class="subhead">Style the Application</span>
+</h1>
 
 Now that you've built a MEN-stack app with referencing, it's time to add some style. If you follow all of the steps of this level up you'll have an app that looks like this:
 

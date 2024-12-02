@@ -1,4 +1,7 @@
-# ![MEN Stack Referencing Related Data - OpenHouse - Add Index Functionality to the Listings Landing Page](./assets/hero.png)
+<h1>
+  <span class="headline">Openhouse</span>
+  <span class="subhead">Add Index Functionality to the Listings Landing Page</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will be able to apply the `populate()` method to index functionality.
 

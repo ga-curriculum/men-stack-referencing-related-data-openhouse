@@ -1,4 +1,7 @@
-# ![MEN Stack Referencing Related Data - OpenHouse - Build the Show Page](./assets/hero.png)
+<h1>
+  <span class="headline">Openhouse</span>
+  <span class="subhead">Build the Show Page</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will be able to build the functionality for displaying a single resource on its `show` page.
 
